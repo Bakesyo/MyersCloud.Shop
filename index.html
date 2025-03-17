@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MyersCloud.Shop - Premium discount marketplace offering high-quality products at unbeatable prices. Find incredible deals on home, office, and lifestyle products.">
+  <meta name="keywords" content="discount marketplace, premium deals, home products, office supplies, electronics, climate control, storage solutions">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="MyersCloud.Shop - Premium Discount Marketplace">
+  <meta property="og:description" content="Incredible deals and massive savings on premium products with limited availability.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://myerscloud.shop/">
+  <link rel="canonical" href="https://myerscloud.shop/">
+  <title>MyersCloud.Shop - Premium Discount Marketplace</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      position: relative;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 2400px;
+      margin: 0 auto;
+      padding: 0 0.5rem;
+    }
+    
+    .header {
+      background: linear-gradient(to right, #b8860b, #f5c518, #b8860b);
+      color: #000;
+      box-shadow: 0 4px 15px rgba(245, 197, 24, 0.4);
+      padding: 0.5rem 0;
+      border-bottom: 4px solid #000;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+      z-index: 10;
+    }
+    
+    .header::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, 
+                rgba(255,215,0,0.2) 25%, 
+                transparent 25%, 
+                transparent 50%, 
+                rgba(255,215,0,0.2) 50%, 
+                rgba(255,215,0,0.2) 75%, 
+                transparent 75%, 
+                transparent);
+      background-size: 10px 10px;
+      pointer-events: none;
+    }
+    
+    .header h1 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      text-align: center;
+      text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+      letter-spacing: 1px;
+    }
+    
+    .header p {
+      font-size: 0.9rem;
+      text-align: center;
+      margin-top: 0.25rem;
+      font-weight: 600;
+      color: #111;
+    }
+    
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      position: relative;
+    }
+    
+    .slideshow {
+      position: relative;
+      background-color: #111;
+      border-bottom: 4px solid #b8860b;
+      flex: 1;
+      min-height: 70vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .slideshow-container {
+      display: flex;
+      transition: transform 1s ease-in-out;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .product-grid {
+      display: grid;
+      gap: 0.5rem;
+      padding: 0.75rem;
+      width: 100%;
+      flex-shrink: 0;
+      height: auto;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+    
+    .product-card {
+      background-color: #222;
+      border: 2px solid #b8860b;
+      border-radius: 0.5rem;
+      box-shadow: 0 5px 15px rgba(184, 134, 11, 0.3);
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      cursor: pointer; /* Added to indicate clickable */
+    }
+    
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(184, 134, 11, 0.5);
+    }
+    
+    .product-image {
+      height: 100px;
+      background-color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    
+    .product-image img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    
+
+    
+    .product-info {
+      padding: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    
+    .product-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    
+    .product-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      line-height: 1.2;
+      max-height: 2.4rem;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      color: #f5c518;
+    }
+    
+    .discount-badge {
+      background-color: #e61919;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.2rem 0.4rem;
+      border-radius: 9999px;
+      transform: rotate(5deg);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      flex-shrink: 0;
+      margin-left: 0.3rem;
+    }
+    
+    .price-container {
+      margin-top: 0.3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+    }
+    
+    .prices {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .retail-price {
+      color: #999;
+      text-decoration: line-through;
+      font-size: 0.7rem;
+    }
+    
+    .sale-price {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(245, 197, 24, 0.8);
+    }
+    
+    .category-tag {
+      background-color: #333;
+      color: #f5c518;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.3rem;
+      border-radius: 0.25rem;
+      border: 1px solid #b8860b;
+    }
+    
+    .contact-banner {
+      background: linear-gradient(45deg, #000000, #2a1a0c, #000000);
+      color: white;
+      padding: 0.75rem 0;
+      text-align: center;
+      font-size: 0.9rem;
+      position: relative;
+      border-top: 4px solid #b8860b;
+      width: 100%;
+      z-index: 10;
+      flex-shrink: 0;
+    }
+    
+    .contact-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23b8860b' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    
+    .contact-banner h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 10px rgba(245, 197, 24, 0.5);
+      color: #f5c518;
+    }
+    
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin: 0.5rem 0;
+    }
+    
+    .contact-number {
+      display: inline-block;
+      background: linear-gradient(to right, #b8860b, #ffd700, #b8860b);
+      color: #000;
+      border-radius: 0.5rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.5);
+      padding: 0.6rem 0.75rem;
+      font-size: 1.3rem;
+      font-weight: 800;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid #000;
+    }
+    
+    .contact-number::after {
+      content: 'TEXT OR CALL';
+      position: absolute;
+      top: 2px;
+      left: 0;
+      width: 100%;
+      font-size: 0.5rem;
+      font-weight: 600;
+      color: #000;
+      text-align: center;
+    }
+    
+    .inventory-label {
+      position: absolute;
+      top: 0.5rem;
+      left: 0;
+      background-color: #f5c518;
+      color: #000;
+      padding: 0.2rem 0.4rem;
+      font-weight: bold;
+      font-size: 0.6rem;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      z-index: 10;
+    }
+    
+    .slide-nav {
+      position: absolute;
+      bottom: 0.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.5rem;
+      z-index: 10;
+    }
+    
+    .slide-dot {
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.2);
+      border: 2px solid #b8860b;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .slide-dot.active {
+      background-color: #f5c518;
+    }
+    
+    @keyframes pulsate {
+      0% { transform: scale(1); filter: brightness(100%); }
+      50% { transform: scale(1.05); filter: brightness(120%); }
+      100% { transform: scale(1); filter: brightness(100%); }
+    }
+    
+    .sale-price {
+      animation: pulsate 2s infinite;
+    }
+    
+    .product-card::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 215, 0, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: rotate(30deg);
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    .product-card.high-value::after {
+      animation: shine 6s infinite;
+    }
+    
+    .product-card.medium-value::after {
+      animation: shine 12s infinite;
+    }
+    
+    @keyframes shine {
+      0%, 75% { 
+        opacity: 0;
+        transform: translateX(-100%) rotate(30deg); 
+      }
+      80% { 
+        opacity: 1; 
+      }
+      100% { 
+        opacity: 0;
+        transform: translateX(100%) rotate(30deg); 
+      }
+    }
+    
+    .hot-deal {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background-color: #e61919;
+      color: white;
+      font-weight: bold;
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      transform: rotate(10deg);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      z-index: 10;
+      font-size: 0.7rem;
+    }
+    
+    .qr-container {
+      background-color: #fff;
+      padding: 0.4rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      border: 2px solid #000;
+    }
+    
+    .qr-container svg {
+      width: 70px;
+      height: 70px;
+    }
+    
+    .qr-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: #000;
+      margin-top: 0.25rem;
+      text-align: center;
+    }
+    
+    @keyframes neon {
+      0%, 100% {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #f5c518, 0 0 20px #f5c518;
+      }
+      50% {
+        text-shadow: 0 0 5px #fff, 0 0 15px #fff, 0 0 25px #f5c518, 0 0 30px #f5c518;
+      }
+    }
+    
+    .vegas-highlight {
+      color: #f5c518;
+      animation: neon 2s infinite;
+      font-weight: 700;
+    }
+    
+    /* Product Modal Styles */
+    .product-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+    }
+    
+    .product-modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .modal-content {
+      background-color: #222;
+      border: 3px solid #b8860b;
+      border-radius: 0.75rem;
+      width: 90%;
+      max-width: 500px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(245, 197, 24, 0.3);
+      animation: modal-in 0.3s forwards;
+    }
+    
+    @keyframes modal-in {
+      from {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    
+    .modal-header {
+      background: linear-gradient(to right, #b8860b, #f5c518, #b8860b);
+      color: #000;
+      padding: 0.75rem 1rem;
+      position: relative;
+      border-bottom: 2px solid #000;
+    }
+    
+    .modal-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-right: 2rem;
+    }
+    
+    .close-modal {
+      position: absolute;
+      top: 0.75rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      line-height: 1;
+      color: #000;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-weight: 800;
+    }
+    
+    .modal-body {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .modal-image-container {
+      display: flex;
+      justify-content: center;
+      border: 1px solid #444;
+      background-color: #333;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+    }
+    
+    .modal-image {
+      max-width: 100%;
+      max-height: 200px;
+      object-fit: contain;
+    }
+    
+    .modal-details {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.5rem 1rem;
+      background-color: #1a1a1a;
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      border: 1px solid #444;
+    }
+    
+    .detail-label {
+      font-weight: 600;
+      color: #f5c518;
+    }
+    
+    .modal-description {
+      background-color: #1a1a1a;
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      border: 1px solid #444;
+      line-height: 1.4;
+    }
+    
+    .modal-footer {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    
+    .cta-container {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: space-between;
+    }
+    
+    .cta-button {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+      gap: 0.5rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-2px);
+    }
+    
+    .call-button {
+      background: linear-gradient(to bottom, #4CAF50, #2E7D32);
+      color: white;
+      border: 2px solid #1B5E20;
+      box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
+    }
+    
+    .call-button:hover {
+      box-shadow: 0 6px 12px rgba(76, 175, 80, 0.5);
+    }
+    
+    .text-button {
+      background: linear-gradient(to bottom, #2196F3, #1565C0);
+      color: white;
+      border: 2px solid #0D47A1;
+      box-shadow: 0 4px 8px rgba(33, 150, 243, 0.3);
+    }
+    
+    .text-button:hover {
+      box-shadow: 0 6px 12px rgba(33, 150, 243, 0.5);
+    }
+    
+    .cta-icon {
+      font-size: 1.2rem;
+    }
+    
+    /* Mobile-First Responsive Adjustments */
+    @media (min-width: 480px) {
+      .header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .header p {
+        font-size: 1rem;
+      }
+      
+      .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      }
+      
+      .product-title {
+        font-size: 1rem;
+      }
+      
+      .product-image {
+        height: 110px;
+      }
+      
+      .sale-price {
+        font-size: 1.3rem;
+      }
+      
+      .qr-container svg {
+        width: 100px;
+        height: 100px;
+      }
+      
+      .modal-content {
+        max-width: 550px;
+      }
+      
+      .modal-title {
+        font-size: 1.4rem;
+      }
+      
+      .modal-image {
+        max-height: 250px;
+      }
+    }
+    
+    @media (min-width: 768px) {
+      .header h1 {
+        font-size: 2.2rem;
+      }
+      
+      .header p {
+        font-size: 1.1rem;
+      }
+      
+      .container {
+        padding: 0 1rem;
+      }
+      
+      .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      }
+      
+      .product-image {
+        height: 120px;
+      }
+      
+      .product-title {
+        font-size: 1.1rem;
+      }
+      
+      .sale-price {
+        font-size: 1.4rem;
+      }
+      
+      .contact-number {
+        font-size: 1.5rem;
+      }
+      
+      .qr-container svg {
+        width: 120px;
+        height: 120px;
+      }
+      
+      .modal-content {
+        max-width: 650px;
+      }
+      
+      .modal-title {
+        font-size: 1.5rem;
+      }
+      
+      .modal-body {
+        padding: 1.5rem;
+      }
+      
+      .modal-image {
+        max-height: 300px;
+      }
+      
+      .cta-button {
+        font-size: 1.1rem;
+        padding: 0.85rem;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      }
+      
+      .product-image {
+        height: 130px;
+      }
+      
+      .qr-container svg {
+        width: 150px;
+        height: 150px;
+      }
+      
+      .modal-content {
+        max-width: 700px;
+      }
+    }
+    
+    @media (min-width: 1440px) {
+      .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      }
+    }
+    
+    @media (min-width: 1920px) {
+      .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      }
+    }
+    
+    /* Landscape orientation adjustments for mobile */
+    @media (max-height: 500px) and (orientation: landscape) {
+      .main-content {
+        flex-direction: row;
+      }
+      
+      .slideshow {
+        min-height: unset;
+      }
+      
+      .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      }
+      
+      .product-image {
+        height: 80px;
+      }
+      
+      .product-title {
+        font-size: 0.8rem;
+        -webkit-line-clamp: 1;
+        max-height: 1.2rem;
+      }
+      
+      .sale-price {
+        font-size: 0.9rem;
+      }
+      
+      .retail-price {
+        font-size: 0.6rem;
+      }
+      
+      .category-tag {
+        font-size: 0.6rem;
+        padding: 0.1rem 0.25rem;
+      }
+      
+      .contact-banner {
+        padding: 0.4rem 0;
+      }
+      
+      .contact-banner h2 {
+        font-size: 1rem;
+        margin-bottom: 0.3rem;
+      }
+      
+      .contact-number {
+        font-size: 1.1rem;
+        padding: 0.4rem 0.6rem;
+      }
+      
+      .qr-container svg {
+        width: 60px;
+        height: 60px;
+      }
+      
+      .modal-content {
+        height: 90vh;
+        max-height: none;
+      }
+      
+      .modal-image {
+        max-height: 150px;
+      }
+      
+      .modal-body {
+        padding: 0.75rem;
+        gap: 0.5rem;
+      }
+      
+      .cta-button {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Billboard-specific optimizations */
+    @media (min-width: 1200px) and (min-height: 800px) {
+      .main-content {
+        flex-direction: row;
+      }
+      
+      .slideshow {
+        flex: 3;
+      }
+      
+      .contact-banner {
+        width: 25%;
+        border-top: none;
+        border-left: 4px solid #b8860b;
+      }
+    }
+    
+    /* Mobile scroll fix */
+    @media (max-width: 767px) {
+      body.mobile-view {
+        height: auto;
+        overflow-y: auto;
+      }
+      
+      body.mobile-view .slideshow {
+        min-height: 60vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      
+      body.mobile-view .contact-banner {
+        position: relative;
+      }
+      
+      .paging-control {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0.5rem 0;
+        gap: 1rem;
+      }
+      
+      .page-button {
+        background: linear-gradient(to right, #b8860b, #f5c518, #b8860b);
+        color: #000;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <h1>MyersCloud.Shop</h1>
+      <p>Incredible Deals · Massive Savings · Limited Stock</p>
+    </div>
+  </header>
+  
+  <main itemscope itemtype="https://schema.org/Store" class="main-content">
+    <meta itemprop="name" content="MyersCloud.Shop">
+    <meta itemprop="description" content="Premium discount marketplace offering high-quality products at unbeatable prices.">
+    <meta itemprop="image" content="https://myerscloud.shop/logo.png">
+    <meta itemprop="telephone" content="702-969-4266">
+    
+    <!-- Slideshow Section -->
+    <section class="slideshow">
+      <div class="slideshow-container" id="slideshowContainer">
+        <!-- Products will be populated by JavaScript -->
+      </div>
+      
+      <div class="paging-control" id="pagingControl">
+        <!-- Mobile page buttons will be added here -->
+      </div>
+      
+      <div class="slide-nav" id="slideNav">
+        <!-- Nav dots will be added here -->
+      </div>
+    </section>
+    
+    <!-- Contact Banner -->
+    <div class="contact-banner">
+      <div class="container">
+        <h2>Unbeatable <span class="vegas-highlight">Premium</span> Savings</h2>
+        <p>These premium items won't last long at these prices!</p>
+        
+        <div class="contact-info">
+          <div class="contact-number">702-969-4266</div>
+          
+          <div class="qr-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 37">
+              <!-- QR Code for SMS to 702-969-4266 -->
+              <rect width="100%" height="100%" fill="white" />
+              <path d="M4,4h1v1h-1z M5,4h1v1h-1z M6,4h1v1h-1z M7,4h1v1h-1z M8,4h1v1h-1z M9,4h1v1h-1z M10,4h1v1h-1z M12,4h1v1h-1z M15,4h1v1h-1z M16,4h1v1h-1z M17,4h1v1h-1z M19,4h1v1h-1z M20,4h1v1h-1z M21,4h1v1h-1z M22,4h1v1h-1z M23,4h1v1h-1z M24,4h1v1h-1z M25,4h1v1h-1z M26,4h1v1h-1z M27,4h1v1h-1z M28,4h1v1h-1z M29,4h1v1h-1z M30,4h1v1h-1z M31,4h1v1h-1z M32,4h1v1h-1z M4,5h1v1h-1z M10,5h1v1h-1z M13,5h1v1h-1z M14,5h1v1h-1z M18,5h1v1h-1z M19,5h1v1h-1z M21,5h1v1h-1z M23,5h1v1h-1z M26,5h1v1h-1z M32,5h1v1h-1z M4,6h1v1h-1z M6,6h1v1h-1z M7,6h1v1h-1z M8,6h1v1h-1z M10,6h1v1h-1z M13,6h1v1h-1z M15,6h1v1h-1z M17,6h1v1h-1z M18,6h1v1h-1z M19,6h1v1h-1z M22,6h1v1h-1z M23,6h1v1h-1z M26,6h1v1h-1z M28,6h1v1h-1z M29,6h1v1h-1z M30,6h1v1h-1z M32,6h1v1h-1z M4,7h1v1h-1z M6,7h1v1h-1z M7,7h1v1h-1z M8,7h1v1h-1z M10,7h1v1h-1z M12,7h1v1h-1z M13,7h1v1h-1z M14,7h1v1h-1z M15,7h1v1h-1z M16,7h1v1h-1z M20,7h1v1h-1z M21,7h1v1h-1z M22,7h1v1h-1z M24,7h1v1h-1z M26,7h1v1h-1z M28,7h1v1h-1z M29,7h1v1h-1z M30,7h1v1h-1z M32,7h1v1h-1z M4,8h1v1h-1z M6,8h1v1h-1z M7,8h1v1h-1z M8,8h1v1h-1z M10,8h1v1h-1z M14,8h1v1h-1z M15,8h1v1h-1z M16,8h1v1h-1z M17,8h1v1h-1z M22,8h1v1h-1z M24,8h1v1h-1z M26,8h1v1h-1z M28,8h1v1h-1z M29,8h1v1h-1z M30,8h1v1h-1z M32,8h1v1h-1z M4,9h1v1h-1z M10,9h1v1h-1z M13,9h1v1h-1z M14,9h1v1h-1z M15,9h1v1h-1z M17,9h1v1h-1z M18,9h1v1h-1z M19,9h1v1h-1z M21,9h1v1h-1z M24,9h1v1h-1z M26,9h1v1h-1z M32,9h1v1h-1z M4,10h1v1h-1z M5,10h1v1h-1z M6,10h1v1h-1z M7,10h1v1h-1z M8,10h1v1h-1z M9,10h1v1h-1z M10,10h1v1h-1z M12,10h1v1h-1z M14,10h1v1h-1z M16,10h1v1h-1z M18,10h1v1h-1z M20,10h1v1h-1z M22,10h1v1h-1z M24,10h1v1h-1z M26,10h1v1h-1z M27,10h1v1h-1z M28,10h1v1h-1z M29,10h1v1h-1z M30,10h1v1h-1z M31,10h1v1h-1z M32,10h1v1h-1z M12,11h1v1h-1z M14,11h1v1h-1z M15,11h1v1h-1z M16,11h1v1h-1z M17,11h1v1h-1z M20,11h1v1h-1z M21,11h1v1h-1z M22,11h1v1h-1z M12,12h1v1h-1z M13,12h1v1h-1z M14,12h1v1h-1z M16,12h1v1h-1z M18,12h1v1h-1z M21,12h1v1h-1z M22,12h1v1h-1z M23,12h1v1h-1z M24,12h1v1h-1z M25,12h1v1h-1z M26,12h1v1h-1z M27,12h1v1h-1z M28,12h1v1h-1z M30,12h1v1h-1z M31,12h1v1h-1z M32,12h1v1h-1z M4,13h1v1h-1z M5,13h1v1h-1z M8,13h1v1h-1z M10,13h1v1h-1z M12,13h1v1h-1z M14,13h1v1h-1z M17,13h1v1h-1z M19,13h1v1h-1z M23,13h1v1h-1z M24,13h1v1h-1z M25,13h1v1h-1z M26,13h1v1h-1z M28,13h1v1h-1z M29,13h1v1h-1z M31,13h1v1h-1z M32,13h1v1h-1z M4,14h1v1h-1z M5,14h1v1h-1z M6,14h1v1h-1z M13,14h1v1h-1z M16,14h1v1h-1z M17,14h1v1h-1z M19,14h1v1h-1z M20,14h1v1h-1z M22,14h1v1h-1z M23,14h1v1h-1z M25,14h1v1h-1z M26,14h1v1h-1z M27,14h1v1h-1z M31,14h1v1h-1z M32,14h1v1h-1z M4,15h1v1h-1z M5,15h1v1h-1z M6,15h1v1h-1z M8,15h1v1h-1z M11,15h1v1h-1z M14,15h1v1h-1z M16,15h1v1h-1z M17,15h1v1h-1z M19,15h1v1h-1z M21,15h1v1h-1z M22,15h1v1h-1z M23,15h1v1h-1z M26,15h1v1h-1z M28,15h1v1h-1z M29,15h1v1h-1z M30,15h1v1h-1z M31,15h1v1h-1z M32,15h1v1h-1z M6,16h1v1h-1z M7,16h1v1h-1z M8,16h1v1h-1z M9,16h1v1h-1z M10,16h1v1h-1z M11,16h1v1h-1z M13,16h1v1h-1z M15,16h1v1h-1z M17,16h1v1h-1z M19,16h1v1h-1z M20,16h1v1h-1z M21,16h1v1h-1z M22,16h1v1h-1z M24,16h1v1h-1z M25,16h1v1h-1z M27,16h1v1h-1z M29,16h1v1h-1z M30,16h1v1h-1z M32,16h1v1h-1z M4,17h1v1h-1z M6,17h1v1h-1z M8,17h1v1h-1z M12,17h1v1h-1z M15,17h1v1h-1z M18,17h1v1h-1z M19,17h1v1h-1z M20,17h1v1h-1z M23,17h1v1h-1z M24,17h1v1h-1z M25,17h1v1h-1z M26,17h1v1h-1z M27,17h1v1h-1z M28,17h1v1h-1z M30,17h1v1h-1z M31,17h1v1h-1z M32,17h1v1h-1z M5,18h1v1h-1z M7,18h1v1h-1z M8,18h1v1h-1z M9,18h1v1h-1z M11,18h1v1h-1z M13,18h1v1h-1z M14,18h1v1h-1z M15,18h1v1h-1z M17,18h1v1h-1z M18,18h1v1h-1z M23,18h1v1h-1z M24,18h1v1h-1z M25,18h1v1h-1z M26,18h1v1h-1z M27,18h1v1h-1z M28,18h1v1h-1z M29,18h1v1h-1z M31,18h1v1h-1z M12,19h1v1h-1z M13,19h1v1h-1z M14,19h1v1h-1z M16,19h1v1h-1z M17,19h1v1h-1z M19,19h1v1h-1z M21,19h1v1h-1z M22,19h1v1h-1z M23,19h1v1h-1z M24,19h1v1h-1z M25,19h1v1h-1z M28,19h1v1h-1z M30,19h1v1h-1z M31,19h1v1h-1z M4,20h1v1h-1z M5,20h1v1h-1z M6,20h1v1h-1z M7,20h1v1h-1z M8,20h1v1h-1z M9,20h1v1h-1z M10,20h1v1h-1z M14,20h1v1h-1z M16,20h1v1h-1z M20,20h1v1h-1z M23,20h1v1h-1z M25,20h1v1h-1z M26,20h1v1h-1z M27,20h1v1h-1z M29,20h1v1h-1z M31,20h1v1h-1z M4,21h1v1h-1z M10,21h1v1h-1z M12,21h1v1h-1z M14,21h1v1h-1z M16,21h1v1h-1z M17,21h1v1h-1z M19,21h1v1h-1z M20,21h1v1h-1z M22,21h1v1h-1z M23,21h1v1h-1z M29,21h1v1h-1z M30,21h1v1h-1z M32,21h1v1h-1z M4,22h1v1h-1z M6,22h1v1h-1z M7,22h1v1h-1z M8,22h1v1h-1z M10,22h1v1h-1z M12,22h1v1h-1z M14,22h1v1h-1z M15,22h1v1h-1z M16,22h1v1h-1z M19,22h1v1h-1z M20,22h1v1h-1z M24,22h1v1h-1z M25,22h1v1h-1z M26,22h1v1h-1z M28,22h1v1h-1z M32,22h1v1h-1z M4,23h1v1h-1z M6,23h1v1h-1z M7,23h1v1h-1z M8,23h1v1h-1z M10,23h1v1h-1z M13,23h1v1h-1z M15,23h1v1h-1z M20,23h1v1h-1z M23,23h1v1h-1z M25,23h1v1h-1z M26,23h1v1h-1z M28,23h1v1h-1z M29,23h1v1h-1z M30,23h1v1h-1z M32,23h1v1h-1z M4,24h1v1h-1z M6,24h1v1h-1z M7,24h1v1h-1z M8,24h1v1h-1z M10,24h1v1h-1z M13,24h1v1h-1z M15,24h1v1h-1z M16,24h1v1h-1z M18,24h1v1h-1z M19,24h1v1h-1z M21,24h1v1h-1z M22,24h1v1h-1z M24,24h1v1h-1z M26,24h1v1h-1z M27,24h1v1h-1z M28,24h1v1h-1z M30,24h1v1h-1z M32,24h1v1h-1z M4,25h1v1h-1z M10,25h1v1h-1z M13,25h1v1h-1z M14,25h1v1h-1z M15,25h1v1h-1z M16,25h1v1h-1z M19,25h1v1h-1z M24,25h1v1h-1z M26,25h1v1h-1z M27,25h1v1h-1z M28,25h1v1h-1z M32,25h1v1h-1z M4,26h1v1h-1z M5,26h1v1h-1z M6,26h1v1h-1z M7,26h1v1h-1z M8,26h1v1h-1z M9,26h1v1h-1z M10,26h1v1h-1z M13,26h1v1h-1z M14,26h1v1h-1z M16,26h1v1h-1z M18,26h1v1h-1z M19,26h1v1h-1z M20,26h1v1h-1z M22,26h1v1h-1z M25,26h1v1h-1z M26,26h1v1h-1z M27,26h1v1h-1z M28,26h1v1h-1z M29,26h1v1h-1z M32,26h1v1h-1z M13,27h1v1h-1z M14,27h1v1h-1z M16,27h1v1h-1z M17,27h1v1h-1z M18,27h1v1h-1z M20,27h1v1h-1z M21,27h1v1h-1z M22,27h1v1h-1z M24,27h1v1h-1z M25,27h1v1h-1z M26,27h1v1h-1z M28,27h1v1h-1z M29,27h1v1h-1z M30,27h1v1h-1z M32,27h1v1h-1z M4,28h1v1h-1z M5,28h1v1h-1z M6,28h1v1h-1z M7,28h1v1h-1z M8,28h1v1h-1z M9,28h1v1h-1z M10,28h1v1h-1z M13,28h1v1h-1z M15,28h1v1h-1z M17,28h1v1h-1z M18,28h1v1h-1z M19,28h1v1h-1z M20,28h1v1h-1z M22,28h1v1h-1z M24,28h1v1h-1z M25,28h1v1h-1z M27,28h1v1h-1z M28,28h1v1h-1z M31,28h1v1h-1z M4,29h1v1h-1z M10,29h1v1h-1z M14,29h1v1h-1z M15,29h1v1h-1z M17,29h1v1h-1z M20,29h1v1h-1z M22,29h1v1h-1z M23,29h1v1h-1z M24,29h1v1h-1z M25,29h1v1h-1z M26,29h1v1h-1z M29,29h1v1h-1z M31,29h1v1h-1z M4,30h1v1h-1z M6,30h1v1h-1z M7,30h1v1h-1z M8,30h1v1h-1z M10,30h1v1h-1z M12,30h1v1h-1z M13,30h1v1h-1z M17,30h1v1h-1z M21,30h1v1h-1z M22,30h1v1h-1z M23,30h1v1h-1z M24,30h1v1h-1z M29,30h1v1h-1z M30,30h1v1h-1z M32,30h1v1h-1z M4,31h1v1h-1z M6,31h1v1h-1z M7,31h1v1h-1z M8,31h1v1h-1z M10,31h1v1h-1z M12,31h1v1h-1z M14,31h1v1h-1z M16,31h1v1h-1z M17,31h1v1h-1z M18,31h1v1h-1z M22,31h1v1h-1z M24,31h1v1h-1z M26,31h1v1h-1z M28,31h1v1h-1z M29,31h1v1h-1z M30,31h1v1h-1z M31,31h1v1h-1z M4,32h1v1h-1z M10,32h1v1h-1z M13,32h1v1h-1z M15,32h1v1h-1z M16,32h1v1h-1z M17,32h1v1h-1z M18,32h1v1h-1z M21,32h1v1h-1z M22,32h1v1h-1z M23,32h1v1h-1z M26,32h1v1h-1z M28,32h1v1h-1z M29,32h1v1h-1z M31,32h1v1h-1z" fill="black" />
+            </svg>
+            <div class="qr-label">SCAN TO TEXT</div>
+          </div>
+        </div>
+        
+        <p class="vegas-highlight">First Come, First Served - Limited Time Only!</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Product Modal -->
+  <div class="product-modal" id="productModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitle">Product Title</h3>
+        <button class="close-modal" id="closeModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-image-container">
+          <img src="" alt="Product Image" class="modal-image" id="modalImage">
+        </div>
+        <div class="modal-details">
+          <span class="detail-label">Retail Price:</span>
+          <span id="modalRetailPrice">$249.99</span>
+          
+          <span class="detail-label">Our Price:</span>
+          <span id="modalSalePrice">$100.00</span>
+          
+          <span class="detail-label">Your Savings:</span>
+          <span id="modalSavings">$149.99 (60% off)</span>
+          
+          <span class="detail-label">Category:</span>
+          <span id="modalCategory">Climate</span>
+          
+          <span class="detail-label">Location:</span>
+          <span id="modalLocation">North Las Vegas - A</span>
+        </div>
+        <div class="modal-description" id="modalDescription">
+          Product description goes here.
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="cta-container">
+          <a href="tel:7029694266" class="cta-button call-button">
+            <span class="cta-icon">📞</span>
+            <span>Call Now</span>
+          </a>
+          <a href="sms:7029694266" class="cta-button text-button">
+            <span class="cta-icon">💬</span>
+            <span>Text Us</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Define items with image URLs, prices, and descriptions
+    const items = [
+      {
+        item: "AIRPLUS Dehumidifier",
+        retail_price: 249.99,
+        list_price: 100.00,
+        paid_price: 11.00,
+        location: "North Las Vegas - A",
+        category: "Climate",
+        image_url: "https://m.media-amazon.com/images/I/51-moyvvCOL.jpg",
+        hot_deal: true,
+        amazon_link: "https://www.amazon.com/AIRPLUS-Dehumidifier-Basements-Intelligent-Humidity/dp/B07PXNN7C5",
+        description: "Powerful AIRPLUS dehumidifier perfect for moisture control in basements, bedrooms and bathrooms. Features quiet operation, auto shutoff, and easy-to-empty water tank. Energy efficient design helps prevent mold, mildew and allergens. <a href='https://www.amazon.com/AIRPLUS-Dehumidifier-Basements-Intelligent-Humidity/dp/B07PXNN7C5' target='_blank'>View on Amazon</a>"
+      },
+      {
+        item: "Ceydebne Privacy Screen Open Box",
+        retail_price: 49.99,
+        list_price: 25.00,
+        paid_price: 4.50,
+        location: "North Las Vegas - A",
+        category: "Office",
+        image_url: "https://m.media-amazon.com/images/I/61cODQ2pl4L.jpg",
+        amazon_link: "https://www.amazon.com/Ceydebne-Privacy-Computer-anti-Glare-Protection/dp/B08HPZSN5W",
+        description: "Protect your sensitive information with this high-quality privacy screen filter. Open box but in excellent condition. Reduces viewing angles to prevent visual hacking while maintaining crystal clear display for the user. <a href='https://www.amazon.com/Ceydebne-Privacy-Computer-anti-Glare-Protection/dp/B08HPZSN5W' target='_blank'>View on Amazon</a>"
+      },
+      {
+        item: "Ceydebne Privacy Screen Sealed",
+        retail_price: 49.99,
+        list_price: 30.00,
+        paid_price: 4.50,
+        location: "North Las Vegas - A",
+        category: "Office",
+        image_url: "https://images.offerup.com/OBflwHzejS71lmSRWYRax_rBo24=/250x333/afd9/afd9b6443db64c589fe53c80145be31b.jpg",
+        amazon_link: "https://www.amazon.com/Ceydebne-Privacy-Computer-anti-Glare-Protection/dp/B08HPZSN5W",
+        description: "Brand new, factory sealed privacy screen filter from Ceydebne. Prevents visual data theft in offices and public spaces. Anti-glare technology reduces eye strain while providing 60° viewing protection on both sides. <a href='https://www.amazon.com/Ceydebne-Privacy-Computer-anti-Glare-Protection/dp/B08HPZSN5W' target='_blank'>View on Amazon</a>"
+      },
+      {
+        item: "TomDetm Privacy Screen Sealed",
+        retail_price: 63.99,
+        list_price: 40.00,
+        paid_price: 4.50,
+        location: "North Las Vegas - A",
+        category: "Office",
+        image_url: "https://m.media-amazon.com/images/I/61oBZScYUyL.jpg",
+        amazon_link: "https://www.amazon.com/TomDetm-Computer-Monitor-Privacy-Protector/dp/B08J3ZVS9S",
+        description: "Premium TomDetm privacy filter with advanced micro-louver technology. New in sealed packaging. Perfect for use in high-traffic areas like airports, coffee shops or co-working spaces where visual privacy is essential. <a href='https://www.amazon.com/TomDetm-Computer-Monitor-Privacy-Protector/dp/B08J3ZVS9S' target='_blank'>View on Amazon</a>"
+      },
+      {
+        item: "Mamol Computer Privacy Screen Open Box",
+        retail_price: 59.99,
+        list_price: 25.00,
+        paid_price: 4.50,
+        location: "North Las Vegas - A",
+        category: "Office",
+        image_url: "https://m.media-amazon.com/images/I/71EJUiAO+aL.jpg",
+        amazon_link: "https://www.amazon.com/Computer-Privacy-Screen-Filter-Protector/dp/B07RJ9VY89",
+        description: "Open box Mamol privacy screen with reversible matte/glossy finish options. Protects your screen from scratches while providing privacy from side viewers. Easy installation with included adhesive strips and slide mount tabs. <a href='https://www.amazon.com/Computer-Privacy-Screen-Filter-Protector/dp/B07RJ9VY89' target='_blank'>View on Amazon</a>"
+      },
+      {
+        item: "VINTEZ Computer Privacy Screen Filter for Widescreen Monitor",
+        retail_price: 53.99,
+        list_price: 40.00,
+        paid_price: 4.50,
+        location: "North Las Vegas - A",
+        category: "Office",
+        image_url: "https://images.offerup.com/7vzoCgi3xd2T6VoEjd2zgs3MxzE=/333x250/a7a0/a7a0297024bf4f7b8692fa7afd247a5c.jpg",
+        amazon_link: "https://www.amazon.com/VINTEZ-Widescreen-Computer-Blackout-Compatible/dp/B07CGFC8L3",
+        description: "VINTEZ widescreen privacy filter designed for modern wide monitors. Features blue light reduction technology to reduce eye fatigue. Frameless design allows for touchscreen functionality while maintaining privacy protection. <a href='https://www.amazon.com/VINTEZ-Widescreen-Computer-Blackout-Compatible/dp/B07CGFC8L3' target='_blank'>View on Amazon</a>"
+      },
+      {
+        item: "IKTCH Stainless Steel Range Hood",
+        retail_price: 389.00,
+        list_price: 200.00,
+        paid_price: 33.16,
+        location: "North Las Vegas - A",
+        category: "Home Decor",
+        image_url: "https://images.offerup.com/dX7YGYDhugQc7rCo1v2HWmRTtNw=/2047x956/260e/260efeac55fb41b9ad5636290dcdb95a.jpg",
+        hot_deal: true,
+        amazon_link: "https://www.amazon.com/IKTCH-Stainless-Control-Extractor-Filtration/dp/B089ZNBF8F",
+        description: "High-end IKTCH stainless steel range hood with powerful 900 CFM motor. Features touch control panel with LED lighting, dishwasher-safe baffle filters, and 3-speed settings. Perfect for professional-grade kitchen ventilation. <a href='https://www.amazon.com/IKTCH-Stainless-Control-Extractor-Filtration/dp/B089ZNBF8F' target='_blank'>View on Amazon</a>"
+      },
+      {
+        item: "PowerScale Outdoor Heater",
+        retail_price: 159.99,
+        list_price: 60.00,
+        paid_price: 4.50,
+        location: "North Las Vegas - A",
+        category: "Climate",
+        image_url: "https://images.offerup.com/TQjiYaS-wzKLFS64YJJV3mdu1G8=/1922x1442/18d5/18d5fed7e09f4839afcb2abb216bafb9.jpg",
+        amazon_link: "https://www.amazon.com/dp/B07YBGT611",
+        description: "PowerScale outdoor heater with adjustable height and weather-resistant construction. Provides instant warmth for patios, decks and outdoor spaces. Includes tip-over protection and adjustable heat settings for comfort year-round. <a href='https://www.amazon.com/dp/B07YBGT611' target='_blank'>View on Amazon</a>"
+      },
+      {
+        item: "PetSafe Electronic Dog Door",
+        retail_price: 199.95,
+        list_price: 100.00,
+        paid_price: 6.99,
+        location: "North Las Vegas - A",
+        category: "Home Decor",
+        image_url: "https://m.media-amazon.com/images/I/61MCYK42a1L.__AC_SX300_SY300_QL70_FMwebp_.jpg",
+        hot_deal: true,
+        amazon_link: "https://www.amazon.com/PetSafe-Electronic-SmartDoor-Collar-Medium/dp/B000TZRQ84",
+        description: "PetSafe electronic pet door with smart access control. Only allows entry to pets wearing the programmable collar key. Weather-tight seal and durable construction provide security and energy efficiency. Ideal for dogs and cats. <a href='https://www.amazon.com/PetSafe-Electronic-SmartDoor-Collar-Medium/dp/B000TZRQ84' target='_blank'>View on Amazon</a>"
+      },
+      {
+        item: "MDODM Knee Glider",
+        retail_price: 58.97,
+        list_price: 40.00,
+        paid_price: 5.74,
+        location: "North Las Vegas - A",
+        category: "Wellness",
+        image_url: "https://images.offerup.com/_9pbXngVQWT9mIkipmfweRj_r1g=/250x333/f688/f688797280634ea8b2aec6b05747b2d7.jpg",
+        amazon_link: "https://www.amazon.com/MDODM-Scooter-Steerable-Alternative-Recovery/dp/B08RCZZYVB",
+        description: "MDODM knee glider for post-surgery recovery or mobility assistance. Padded cushion provides comfort while the sturdy wheeled base allows for easy movement around the home. Adjustable height settings fit most users. <a href='https://www.amazon.com/MDODM-Scooter-Steerable-Alternative-Recovery/dp/B08RCZZYVB' target='_blank'>View on Amazon</a>"
+      },
+      {
+        item: "EXCELLO GLOBAL PRODUCTS Whiteboard",
+        retail_price: 61.62,
+        list_price: 40.00,
+        paid_price: 4.50,
+        location: "North Las Vegas - A",
+        category: "Office",
+        image_url: "https://images.offerup.com/q01rdqYcZDHmFBjO6FAu4eeWtOQ=/333x250/13a9/13a97c9ed715437b8ef37f381a9714d5.jpg",
+        amazon_link: "https://www.amazon.com/EXCELLO-GLOBAL-PRODUCTS-Magnetic-Whiteboard/dp/B082XHVK5B",
+        description: "Premium EXCELLO GLOBAL PRODUCTS magnetic whiteboard with aluminum frame. Smooth writing surface erases cleanly with minimal ghosting. Includes mounting hardware and detachable marker tray for home office or classroom use. <a href='https://www.amazon.com/EXCELLO-GLOBAL-PRODUCTS-Magnetic-Whiteboard/dp/B082XHVK5B' target='_blank'>View on Amazon</a>"
+      },
+      {
+        item: "Somdot Narrow Dresser",
+        retail_price: 55.99,
+        list_price: 40.00,
+        paid_price: 5.74,
+        location: "North Las Vegas - A",
+        category: "Bedroom",
+        image_url: "https://images.offerup.com/rismwRCNjBwYH3KDKBC-KPX1g8Q=/250x333/1c56/1c56c39c15aa4657a1ad456decf24174.jpg",
+        amazon_link: "https://www.amazon.com/Somdot-Organizer-Vertical-Dressers-Bathroom/dp/B08P54HN3J",
+        description: "Space-saving Somdot narrow dresser perfect for small bedrooms or hallways. Features 4 fabric drawers with sturdy metal frame and wooden top. Modern design complements any decor style with simple assembly required. <a href='https://www.amazon.com/Somdot-Organizer-Vertical-Dressers-Bathroom/dp/B08P54HN3J' target='_blank'>View on Amazon</a>"
+      },
+      {
+        item: "ERGOMI Lap Desk",
+        retail_price: 29.00,
+        list_price: 20.00,
+        paid_price: 4.50,
+        location: "North Las Vegas - A",
+        category: "Office",
+        image_url: "https://images.offerup.com/ZUwk740x4YKc98_iqA9mu8lHTkc=/250x333/db64/db64575a43e84c5297d7008c47c6954b.jpg",
+        amazon_link: "https://www.amazon.com/ERGOMI-Portable-Multi-Function-Anti-Slip-Adjustable/dp/B09DTN1X8L",
+        description: "ERGOMI lap desk with built-in wrist rest and phone holder. Cushioned base conforms to your lap while providing a stable work surface. Perfect for working from home, studying in bed, or casual browsing on the couch. <a href='https://www.amazon.com/ERGOMI-Portable-Multi-Function-Anti-Slip-Adjustable/dp/B09DTN1X8L' target='_blank'>View on Amazon</a>"
+      },
+      {
+        item: "Sweetcrispy Nightstand",
+        retail_price: 32.00,
+        list_price: 20.00,
+        paid_price: 6.99,
+        location: "North Las Vegas - A",
+        category: "Bedroom",
+        image_url: "https://images.offerup.com/NEsf-aw1frSm38JTG7UOZpK-zq4=/250x333/bbfe/bbfeb930655a420eafc0e59f25b236b9.jpg",
+        amazon_link: "https://www.amazon.com/Sweetcrispy-Nightstand-Bedside-Bedroom-Furniture/dp/B09V1G4X3J",
+        description: "Compact Sweetcrispy nightstand with one drawer and open bottom shelf. Made from engineered wood with clean, modern lines. Perfect height for bedside use with ample storage for books, electronics, and bedtime essentials. <a href='https://www.amazon.com/Sweetcrispy-Nightstand-Bedside-Bedroom-Furniture/dp/B09V1G4X3J' target='_blank'>View on Amazon</a>"
+      },
+      {
+        item: "JOISCOPE Garment Rack",
+        retail_price: 34.99,
+        list_price: 30.00,
+        paid_price: 4.50,
+        location: "North Las Vegas - A",
+        category: "Storage",
+        image_url: "https://images.offerup.com/Xwc4i4wNV9CBStG8uBVayQxbie0=/250x510/e560/e56031eacd4b4c148f885dd77036ab68.jpg",
+        amazon_link: "https://www.amazon.com/JOISCOPE-Garment-Organizer-Industrial-Clothing/dp/B082KV6LFY",
+        description: "JOISCOPE heavy-duty garment rack with shoe shelf. Industrial design with metal frame supports up to 150 pounds of clothing. Perfect for apartments, dorm rooms, or as additional closet space in any room. <a href='https://www.amazon.com/JOISCOPE-Garment-Organizer-Industrial-Clothing/dp/B082KV6LFY' target='_blank'>View on Amazon</a>"
+      },
+      {
+        item: "Finnhomy Clothes Rack",
+        retail_price: 48.99,
+        list_price: 40.00,
+        paid_price: 4.50,
+        location: "North Las Vegas - A",
+        category: "Storage",
+        image_url: "https://images.offerup.com/ofbhvduT8OA_7cscdvTcsPNxD5A=/250x333/6372/63722bd25e6b402f80201161415c85ad.jpg",
+        amazon_link: "https://www.amazon.com/Finnhomy-Adjustable-Double-Garment-Wheels/dp/B07FCX3NS1",
+        description: "Finnhomy expandable clothing rack with commercial-grade chrome finish. Adjustable height and width to fit your space and storage needs. Includes wheels for easy mobility and lockable casters for stability when stationary. <a href='https://www.amazon.com/Finnhomy-Adjustable-Double-Garment-Wheels/dp/B07FCX3NS1' target='_blank'>View on Amazon</a>"
+      }
+    ];
+
+    // Process items with discounts and add value classes for glare effects
+    function processItems() {
+      return items.map(item => {
+        // Calculate discount percentage from retail to list
+        const discountPercent = Math.round((1 - (item.list_price / item.retail_price)) * 100);
+        
+        // Determine value class based on price (for glare effect)
+        let valueClass = '';
+        if (item.retail_price >= 200) {
+          valueClass = 'high-value';
+        } else if (item.retail_price >= 100) {
+          valueClass = 'medium-value';
+        }
+        
+        return {
+          ...item,
+          discount: discountPercent,
+          valueClass: valueClass
+        };
+      });
+    }
+    
+    const processedItems = processItems();
+    
+    // Detect mobile device for enhanced mobile experience
+    function detectMobile() {
+      const userAgent = navigator.userAgent.toLowerCase();
+      const isMobile = /iphone|ipad|ipod|android|blackberry|windows phone|opera mini|silk/i.test(userAgent);
+      
+      if (isMobile) {
+        document.body.classList.add('mobile-view');
+      }
+      
+      return isMobile;
+    }
+    
+    // Create slideshow with responsive item display and mobile detection
+    function createSlideshow() {
+      const slideshowContainer = document.getElementById("slideshowContainer");
+      const slideNav = document.getElementById("slideNav");
+      const pagingControl = document.getElementById("pagingControl");
+      const isMobile = detectMobile();
+      
+      // Dynamically determine items per page based on screen size
+      function getItemsPerPage() {
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        
+        // Mobile device in portrait orientation shows fewer items
+        if (width < 480) return 6;
+        if (width < 768) return 8;
+        // Mobile device in landscape or tablet
+        if (width < 1024) return 12;
+        if (width < 1440) return 16;
+        if (width < 1920) return 20;
+        return 24; // For large billboards
+      }
+      
+      function updateSlideshow() {
+        // Clear existing content
+        slideshowContainer.innerHTML = '';
+        slideNav.innerHTML = '';
+        pagingControl.innerHTML = '';
+        
+        const itemsPerPage = getItemsPerPage();
+        const totalPages = Math.ceil(processedItems.length / itemsPerPage);
+        
+        // For mobile view, we'll preload all items on a single scrollable page
+        if (isMobile && window.innerWidth < 768) {
+          const pageGrid = document.createElement("div");
+          pageGrid.className = "product-grid";
+          
+          // Create all items on a single scrollable grid for mobile
+          processedItems.forEach(item => {
+            const productCard = createProductCard(item);
+            pageGrid.appendChild(productCard);
+          });
+          
+          slideshowContainer.appendChild(pageGrid);
+          
+          // Add simple prev/next buttons for mobile
+          const prevBtn = document.createElement("button");
+          prevBtn.className = "page-button";
+          prevBtn.textContent = "← Prev";
+          prevBtn.disabled = true;
+          
+          const nextBtn = document.createElement("button");
+          nextBtn.className = "page-button";
+          nextBtn.textContent = "Next →";
+          nextBtn.disabled = true;
+          
+          pagingControl.appendChild(prevBtn);
+          pagingControl.appendChild(nextBtn);
+        } else {
+          // Create paginated slideshow for larger screens
+          for (let page = 0; page < totalPages; page++) {
+            // Create a page grid
+            const pageGrid = document.createElement("div");
+            pageGrid.className = "product-grid";
+            
+            // Get items for this page
+            const pageItems = processedItems.slice(page * itemsPerPage, (page + 1) * itemsPerPage);
+            
+            // Create product cards for each item
+            pageItems.forEach(item => {
+              const productCard = createProductCard(item);
+              pageGrid.appendChild(productCard);
+            });
+            
+            slideshowContainer.appendChild(pageGrid);
+            
+            // Create nav dot for this page
+            const dot = document.createElement("div");
+            dot.className = "slide-dot";
+            if (page === 0) dot.classList.add("active");
+            dot.dataset.page = page;
+            slideNav.appendChild(dot);
+          }
+        }
+      }
+      
+      // Helper function to create a product card
+      function createProductCard(item) {
+        const productCard = document.createElement("div");
+        productCard.className = "product-card";
+        if (item.valueClass) {
+          productCard.classList.add(item.valueClass);
+        }
+        productCard.dataset.item = item.item;
+        
+        // Create image container with real image
+        const imageDiv = document.createElement("div");
+        imageDiv.className = "product-image";
+        
+        const img = document.createElement("img");
+        img.src = item.image_url;
+        img.alt = item.item;
+        img.loading = "lazy"; // Add lazy loading for better performance
+        img.onerror = () => {
+          img.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23333'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='16' text-anchor='middle' dominant-baseline='middle' fill='%23ccc'%3EImage Not Available%3C/text%3E%3C/svg%3E";
+        };
+        imageDiv.appendChild(img);
+        
+        // Add "Limited Stock" label
+        const inventoryLabel = document.createElement("div");
+        inventoryLabel.className = "inventory-label";
+        inventoryLabel.textContent = "LIMITED STOCK";
+        imageDiv.appendChild(inventoryLabel);
+        
+        // Add hot deal tag for selected items
+        if (item.hot_deal) {
+          const hotDeal = document.createElement("div");
+          hotDeal.className = "hot-deal";
+          hotDeal.textContent = "HOT DEAL!";
+          imageDiv.appendChild(hotDeal);
+        }
+        
+        // Create product info container
+        const infoDiv = document.createElement("div");
+        infoDiv.className = "product-info";
+        
+        // Create header with title and discount badge
+        const headerDiv = document.createElement("div");
+        headerDiv.className = "product-header";
+        
+        const title = document.createElement("h2");
+        title.className = "product-title";
+        title.textContent = item.item;
+        
+        const discountBadge = document.createElement("span");
+        discountBadge.className = "discount-badge";
+        discountBadge.textContent = `-${item.discount}%`;
+        
+        headerDiv.appendChild(title);
+        headerDiv.appendChild(discountBadge);
+        
+        // Create price container
+        const priceContainer = document.createElement("div");
+        priceContainer.className = "price-container";
+        
+        const pricesDiv = document.createElement("div");
+        pricesDiv.className = "prices";
+        
+        const retailPrice = document.createElement("p");
+        retailPrice.className = "retail-price";
+        retailPrice.textContent = `$${item.retail_price.toFixed(2)}`;
+        
+        const salePrice = document.createElement("p");
+        salePrice.className = "sale-price";
+        salePrice.textContent = `$${item.list_price.toFixed(2)}`;
+        
+        pricesDiv.appendChild(retailPrice);
+        pricesDiv.appendChild(salePrice);
+        
+        const categoryTag = document.createElement("span");
+        categoryTag.className = "category-tag";
+        categoryTag.textContent = item.category;
+        
+        priceContainer.appendChild(pricesDiv);
+        priceContainer.appendChild(categoryTag);
+        
+        // Assemble product card
+        infoDiv.appendChild(headerDiv);
+        infoDiv.appendChild(priceContainer);
+        
+        productCard.appendChild(imageDiv);
+        productCard.appendChild(infoDiv);
+        
+        // Add click event to show modal
+        productCard.addEventListener('click', () => {
+          showProductModal(item);
+        });
+        
+        return productCard;
+      }
+      
+      // Initialize slideshow
+      updateSlideshow();
+      
+      if (!isMobile || window.innerWidth >= 768) {
+        // Set up automatic slideshow and dot navigation for non-mobile or landscape tablets
+        let currentPage = 0;
+        
+        function goToPage(pageIndex) {
+          // Update slideshow position
+          slideshowContainer.style.transform = `translateX(-${pageIndex * 100}%)`;
+          
+          // Update dots
+          const dots = slideNav.querySelectorAll(".slide-dot");
+          dots.forEach((dot, index) => {
+            if (index === pageIndex) {
+              dot.classList.add("active");
+            } else {
+              dot.classList.remove("active");
+            }
+          });
+          
+          currentPage = pageIndex;
+        }
+        
+        // Auto-advance slideshow (only for billboard and desktop views)
+        let slideshowInterval;
+        
+        // Only enable auto-advance if screen is large enough (likely a billboard)
+        if (window.innerWidth >= 1024) {
+          slideshowInterval = setInterval(() => {
+            const dots = slideNav.querySelectorAll(".slide-dot");
+            if (dots.length > 0) {
+              const nextPage = (currentPage + 1) % dots.length;
+              goToPage(nextPage);
+            }
+          }, 8000); // Change slide every 8 seconds
+        }
+        
+        // Add click handlers for dot navigation
+        slideNav.addEventListener('click', (event) => {
+          if (event.target.classList.contains('slide-dot')) {
+            const pageIndex = parseInt(event.target.dataset.page);
+            goToPage(pageIndex);
+            
+            // Reset automatic slideshow timer
+            if (slideshowInterval) {
+              clearInterval(slideshowInterval);
+              slideshowInterval = setInterval(() => {
+                const dots = slideNav.querySelectorAll(".slide-dot");
+                if (dots.length > 0) {
+                  const nextPage = (currentPage + 1) % dots.length;
+                  goToPage(nextPage);
+                }
+              }, 8000);
+            }
+          }
+        });
+      }
+      
+      // Handle window resize with performance optimization
+      let resizeTimeout;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+          updateSlideshow();
+        }, 250);
+      });
+      
+      // Enable touch swipe navigation for mobile
+      if (isMobile) {
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        slideshowContainer.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        
+        slideshowContainer.addEventListener('touchend', (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          handleSwipe();
+        }, { passive: true });
+        
+        function handleSwipe() {
+          const dots = slideNav.querySelectorAll(".slide-dot");
+          if (dots.length <= 1) return;
+          
+          const swipeThreshold = 50;
+          const swipeDiff = touchEndX - touchStartX;
+          
+          if (swipeDiff > swipeThreshold) {
+            // Swipe right - go to previous page
+            const prevPage = (currentPage - 1 + dots.length) % dots.length;
+            goToPage(prevPage);
+          } else if (swipeDiff < -swipeThreshold) {
+            // Swipe left - go to next page
+            const nextPage = (currentPage + 1) % dots.length;
+            goToPage(nextPage);
+          }
+        }
+      }
+    }
+    
+    // Product Modal Functions
+    const productModal = document.getElementById('productModal');
+    const closeModalBtn = document.getElementById('closeModal');
+    
+    function showProductModal(item) {
+      // Populate modal with item details
+      document.getElementById('modalTitle').textContent = item.item;
+      document.getElementById('modalImage').src = item.image_url;
+      document.getElementById('modalImage').alt = item.item;
+      document.getElementById('modalRetailPrice').textContent = `${item.retail_price.toFixed(2)}`;
+      document.getElementById('modalSalePrice').textContent = `${item.list_price.toFixed(2)}`;
+      
+      // Calculate savings
+      const savingsAmount = item.retail_price - item.list_price;
+      const savingsPercent = Math.round((savingsAmount / item.retail_price) * 100);
+      document.getElementById('modalSavings').textContent = `${savingsAmount.toFixed(2)} (${savingsPercent}% off)`;
+      
+      document.getElementById('modalCategory').textContent = item.category;
+      document.getElementById('modalLocation').textContent = item.location;
+      document.getElementById('modalDescription').innerHTML = item.description;
+      
+      // Show modal
+      productModal.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+    
+    function closeProductModal() {
+      productModal.classList.remove('active');
+      document.body.style.overflow = ''; // Restore scrolling
+    }
+    
+    // Close modal events
+    closeModalBtn.addEventListener('click', closeProductModal);
+    
+    // Close when clicking outside the modal content
+    productModal.addEventListener('click', (event) => {
+      if (event.target === productModal) {
+        closeProductModal();
+      }
+    });
+    
+    // Close with ESC key
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && productModal.classList.contains('active')) {
+        closeProductModal();
+      }
+    });
+    
+    // Initialize the slideshow when the page loads
+    document.addEventListener("DOMContentLoaded", createSlideshow);
+  </script>
+</body>
+</html>

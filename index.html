@@ -3,16 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="MyersCloud.Shop - Premium discount marketplace offering high-quality products at unbeatable prices. Find incredible deals on home, office, and lifestyle products.">
-  <meta name="keywords" content="discount marketplace, premium deals, home products, office supplies, electronics, climate control, storage solutions">
-  <meta name="robots" content="index, follow">
-  <meta property="og:title" content="MyersCloud.Shop - Premium Discount Marketplace">
-  <meta property="og:description" content="Incredible deals and massive savings on premium products with limited availability.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://myerscloud.shop/">
-  <link rel="canonical" href="https://myerscloud.shop/">
+  <meta name="description" content="MyersCloud.Shop - Premium discount marketplace offering high-quality products at unbeatable prices.">
   <title>MyersCloud.Shop - Premium Discount Marketplace</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+    
+    :root {
+      --bg-dark: #0c0c14;
+      --bg-darker: #080810;
+      --bg-card: #15151f;
+      --bg-highlight: #1e1a2e;
+      --neon-purple: #b413ec;
+      --neon-purple-glow: #ce00ff;
+      --neon-blue: #4cc9ff;
+      --text-bright: #e1e1ff;
+      --text-primary: #c2c2ff;
+      --text-secondary: #8a8aa8;
+      --discount-red: #ff2d55;
+      --success-green: #4eff9f;
+      --glitch-blue: #36fef8;
+      --border-faint: #2c2c44;
+      --border-glow: 0 0 10px var(--neon-purple-glow), 0 0 30px rgba(206, 0, 255, 0.2);
+      --button-glow: 0 0 15px var(--neon-purple-glow), 0 0 40px rgba(206, 0, 255, 0.3);
+    }
+    
     * {
       margin: 0;
       padding: 0;
@@ -20,30 +34,46 @@
     }
     
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #000;
-      color: #fff;
+      font-family: 'Rajdhani', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-primary);
       min-height: 100vh;
       width: 100%;
       display: flex;
       flex-direction: column;
       overflow-x: hidden;
       position: relative;
+      background-image: 
+        radial-gradient(circle at 20% 80%, rgba(180, 19, 236, 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 80% 20%, rgba(76, 201, 255, 0.1) 0%, transparent 20%),
+        linear-gradient(to bottom, var(--bg-dark), var(--bg-darker));
+    }
+    
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M81.28 88H68.413l19.298 19.298L81.28 88zm2.107 0h13.226L90 107.838 83.387 88zm15.334 0h12.866l-19.298 19.298L98.72 88zm-32.927-2.207L73.586 78h32.827l.5.5 7.294 7.293L115.414 87l-24.707 24.707-.707.707L64.586 87l1.207-1.207zm2.62.207L74 80.414 79.586 86H68.414L73 80.414zM86 57.414L82.414 61 66 77.414 66.414 78H45.586L66 57.586 86 57.414zm0-2.828L68.414 72 85.414 89H68.414L65 85.586 39.586 60.414 65 35 68.414 38.414 85.414 55H100L82.586 37.586 86 34.414 104.414 52.586 85.414 71.586 96.707 82.879 117.414 62.172 115.414 60.172 106.414 69.172 91.414 54.172 90 55.586l-4-4z' fill='%23542c81' fill-opacity='0.08' fill-rule='evenodd'/%3E%3C/svg%3E");
+      opacity: 0.3;
+      pointer-events: none;
+      z-index: -1;
     }
     
     .container {
       width: 100%;
-      max-width: 2400px;
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 0 0.5rem;
+      padding: 0 1rem;
     }
     
     .header {
-      background: linear-gradient(to right, #b8860b, #f5c518, #b8860b);
-      color: #000;
-      box-shadow: 0 4px 15px rgba(245, 197, 24, 0.4);
-      padding: 0.5rem 0;
-      border-bottom: 4px solid #000;
+      background: linear-gradient(90deg, var(--bg-darker), var(--bg-highlight), var(--bg-darker));
+      box-shadow: 0 0 25px rgba(206, 0, 255, 0.2);
+      padding: 1rem 0;
+      border-bottom: 2px solid var(--neon-purple);
       position: relative;
       overflow: hidden;
       flex-shrink: 0;
@@ -57,32 +87,41 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(45deg, 
-                rgba(255,215,0,0.2) 25%, 
-                transparent 25%, 
-                transparent 50%, 
-                rgba(255,215,0,0.2) 50%, 
-                rgba(255,215,0,0.2) 75%, 
-                transparent 75%, 
-                transparent);
-      background-size: 10px 10px;
+      background: 
+        linear-gradient(90deg, var(--bg-darker) 0%, transparent 20%, 
+                      var(--neon-purple-glow) 50%, transparent 80%, 
+                      var(--bg-darker) 100%);
+      opacity: 0.1;
+      transform: translateX(-100%);
+      animation: header-scan 8s ease-in-out infinite;
       pointer-events: none;
     }
     
+    @keyframes header-scan {
+      0% { transform: translateX(-100%); }
+      40%, 60% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    
     .header h1 {
-      font-size: 1.5rem;
-      font-weight: 800;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
       text-align: center;
-      text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
-      letter-spacing: 1px;
+      text-shadow: 0 0 5px var(--neon-purple-glow), 0 0 20px rgba(206, 0, 255, 0.3);
+      letter-spacing: 2px;
+      color: var(--text-bright);
+      text-transform: uppercase;
     }
     
     .header p {
-      font-size: 0.9rem;
+      font-size: 1rem;
       text-align: center;
       margin-top: 0.25rem;
       font-weight: 600;
-      color: #111;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
     
     .main-content {
@@ -91,58 +130,44 @@
       flex-direction: column;
       width: 100%;
       position: relative;
-    }
-    
-    .slideshow {
-      position: relative;
-      background-color: #111;
-      border-bottom: 4px solid #b8860b;
-      flex: 1;
-      min-height: 70vh;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .slideshow-container {
-      display: flex;
-      transition: transform 1s ease-in-out;
-      width: 100%;
-      height: 100%;
+      padding: 2rem 0;
     }
     
     .product-grid {
       display: grid;
-      gap: 0.5rem;
-      padding: 0.75rem;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.5rem;
       width: 100%;
-      flex-shrink: 0;
-      height: auto;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
     }
     
     .product-card {
-      background-color: #222;
-      border: 2px solid #b8860b;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-faint);
       border-radius: 0.5rem;
-      box-shadow: 0 5px 15px rgba(184, 134, 11, 0.3);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
       overflow: hidden;
       position: relative;
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1.5);
       display: flex;
       flex-direction: column;
       height: 100%;
-      cursor: pointer; /* Added to indicate clickable */
+      cursor: pointer;
     }
     
     .product-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(184, 134, 11, 0.5);
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: var(--border-glow);
+      border-color: var(--neon-purple);
+    }
+    
+    .product-card:hover .sale-price {
+      color: var(--text-bright);
+      text-shadow: 0 0 10px var(--neon-purple-glow);
     }
     
     .product-image {
-      height: 100px;
-      background-color: #333;
+      height: 180px;
+      background-color: var(--bg-highlight);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -151,99 +176,129 @@
       flex-shrink: 0;
     }
     
+    .product-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--neon-purple-glow), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+    
+    .product-card:hover .product-image::before {
+      opacity: 1;
+    }
+    
     .product-image img {
       max-width: 100%;
       max-height: 100%;
       object-fit: contain;
+      padding: 0.5rem;
+      transition: all 0.3s ease;
     }
     
-
+    .product-card:hover .product-image img {
+      transform: scale(1.05);
+    }
     
     .product-info {
-      padding: 0.5rem;
+      padding: 1rem;
       display: flex;
       flex-direction: column;
       flex: 1;
-    }
-    
-    .product-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
+      gap: 0.75rem;
     }
     
     .product-title {
-      font-size: 0.9rem;
-      font-weight: 700;
-      line-height: 1.2;
-      max-height: 2.4rem;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      line-height: 1.3;
+      max-height: 2.6rem;
       overflow: hidden;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
-      color: #f5c518;
+      color: var(--text-primary);
+      transition: color 0.3s ease;
+    }
+    
+    .product-card:hover .product-title {
+      color: var(--text-bright);
     }
     
     .discount-badge {
-      background-color: #e61919;
+      background-color: var(--discount-red);
       color: white;
-      font-size: 0.7rem;
+      font-size: 0.8rem;
       font-weight: 700;
       padding: 0.2rem 0.4rem;
       border-radius: 9999px;
       transform: rotate(5deg);
-      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-      flex-shrink: 0;
-      margin-left: 0.3rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      position: absolute;
+      top: 10px;
+      right: 10px;
     }
     
     .price-container {
-      margin-top: 0.3rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-top: auto;
+      padding-top: 0.5rem;
+      border-top: 1px solid rgba(138, 138, 168, 0.15);
     }
     
     .prices {
       display: flex;
       flex-direction: column;
+      gap: 0.15rem;
     }
     
     .retail-price {
-      color: #999;
+      color: var(--text-secondary);
       text-decoration: line-through;
-      font-size: 0.7rem;
+      font-size: 0.85rem;
     }
     
     .sale-price {
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       font-weight: 700;
-      color: #fff;
-      text-shadow: 0 0 10px rgba(245, 197, 24, 0.8);
+      color: var(--neon-purple);
+      transition: all 0.3s ease;
     }
     
     .category-tag {
-      background-color: #333;
-      color: #f5c518;
-      font-size: 0.7rem;
+      background-color: var(--bg-highlight);
+      color: var(--neon-blue);
+      font-size: 0.8rem;
       font-weight: 600;
-      padding: 0.2rem 0.3rem;
+      padding: 0.2rem 0.5rem;
       border-radius: 0.25rem;
-      border: 1px solid #b8860b;
+      border: 1px solid rgba(76, 201, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .product-card:hover .category-tag {
+      background-color: rgba(76, 201, 255, 0.1);
+      border-color: var(--neon-blue);
     }
     
     .contact-banner {
-      background: linear-gradient(45deg, #000000, #2a1a0c, #000000);
-      color: white;
-      padding: 0.75rem 0;
+      background: linear-gradient(135deg, var(--bg-darker), var(--bg-highlight));
+      padding: 1.5rem 0;
       text-align: center;
-      font-size: 0.9rem;
+      font-size: 1rem;
       position: relative;
-      border-top: 4px solid #b8860b;
+      border-top: 2px solid var(--neon-purple);
       width: 100%;
       z-index: 10;
-      flex-shrink: 0;
+      margin-top: 2rem;
+      overflow: hidden;
     }
     
     .contact-banner::before {
@@ -253,16 +308,25 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23b8860b' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+      background: 
+        linear-gradient(to right, transparent 0%, rgba(76, 201, 255, 0.1) 50%, transparent 100%);
+      animation: banner-glow 5s ease-in-out infinite;
       pointer-events: none;
     }
     
+    @keyframes banner-glow {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 0.5; }
+    }
+    
     .contact-banner h2 {
-      font-size: 1.2rem;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
-      text-shadow: 0 0 10px rgba(245, 197, 24, 0.5);
-      color: #f5c518;
+      margin-bottom: 0.75rem;
+      color: var(--text-bright);
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
     
     .contact-info {
@@ -270,71 +334,54 @@
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
-      gap: 0.75rem;
-      margin: 0.5rem 0;
+      gap: 1.5rem;
+      margin: 1rem 0;
     }
     
     .contact-number {
       display: inline-block;
-      background: linear-gradient(to right, #b8860b, #ffd700, #b8860b);
-      color: #000;
+      background: linear-gradient(135deg, #9100ff, #ce00ff);
+      color: white;
       border-radius: 0.5rem;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.5);
-      padding: 0.6rem 0.75rem;
-      font-size: 1.3rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), var(--border-glow);
+      padding: 0.8rem 1.5rem;
+      font-size: 1.5rem;
       font-weight: 800;
       position: relative;
       overflow: hidden;
-      border: 2px solid #000;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .contact-number:hover {
+      box-shadow: var(--button-glow);
+      transform: translateY(-2px) scale(1.02);
     }
     
     .contact-number::after {
       content: 'TEXT OR CALL';
       position: absolute;
-      top: 2px;
+      top: 3px;
       left: 0;
       width: 100%;
-      font-size: 0.5rem;
+      font-size: 0.6rem;
       font-weight: 600;
-      color: #000;
+      color: rgba(255, 255, 255, 0.8);
       text-align: center;
     }
     
     .inventory-label {
       position: absolute;
-      top: 0.5rem;
+      top: 1rem;
       left: 0;
-      background-color: #f5c518;
-      color: #000;
-      padding: 0.2rem 0.4rem;
+      background-color: var(--neon-purple);
+      color: white;
+      padding: 0.2rem 0.6rem 0.2rem 0.4rem;
       font-weight: bold;
-      font-size: 0.6rem;
-      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      font-size: 0.75rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
       z-index: 10;
-    }
-    
-    .slide-nav {
-      position: absolute;
-      bottom: 0.5rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 0.5rem;
-      z-index: 10;
-    }
-    
-    .slide-dot {
-      width: 0.75rem;
-      height: 0.75rem;
-      border-radius: 50%;
-      background-color: rgba(255, 255, 255, 0.2);
-      border: 2px solid #b8860b;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    
-    .slide-dot.active {
-      background-color: #f5c518;
+      clip-path: polygon(0 0, 100% 0%, 90% 100%, 0% 100%);
     }
     
     @keyframes pulsate {
@@ -357,12 +404,13 @@
       background: linear-gradient(
         to right,
         rgba(255, 255, 255, 0) 0%,
-        rgba(255, 215, 0, 0.3) 50%,
+        rgba(206, 0, 255, 0.3) 50%,
         rgba(255, 255, 255, 0) 100%
       );
       transform: rotate(30deg);
       opacity: 0;
       pointer-events: none;
+      transition: opacity 0.3s ease;
     }
     
     .product-card.high-value::after {
@@ -389,56 +437,65 @@
     
     .hot-deal {
       position: absolute;
-      top: 5px;
-      right: 5px;
-      background-color: #e61919;
+      top: 10px;
+      right: 10px;
+      background-color: var(--discount-red);
       color: white;
       font-weight: bold;
-      padding: 0.15rem 0.4rem;
+      padding: 0.25rem 0.5rem;
       border-radius: 4px;
       transform: rotate(10deg);
       box-shadow: 0 2px 4px rgba(0,0,0,0.3);
       z-index: 10;
-      font-size: 0.7rem;
+      font-size: 0.8rem;
     }
     
     .qr-container {
-      background-color: #fff;
-      padding: 0.4rem;
+      background-color: white;
+      padding: 0.75rem;
       border-radius: 0.5rem;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.5);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), var(--border-glow);
       display: flex;
       flex-direction: column;
       align-items: center;
       position: relative;
-      border: 2px solid #000;
+      border: 1px solid rgba(206, 0, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .qr-container:hover {
+      box-shadow: var(--button-glow);
+      transform: translateY(-2px) scale(1.02);
     }
     
     .qr-container svg {
-      width: 70px;
-      height: 70px;
+      width: 120px;
+      height: 120px;
     }
     
     .qr-label {
-      font-size: 0.6rem;
+      font-size: 0.75rem;
       font-weight: 700;
-      color: #000;
-      margin-top: 0.25rem;
+      color: var(--bg-dark);
+      margin-top: 0.5rem;
       text-align: center;
     }
     
-    @keyframes neon {
+    @keyframes neon-flicker {
       0%, 100% {
-        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #f5c518, 0 0 20px #f5c518;
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--neon-purple), 0 0 20px var(--neon-purple);
       }
-      50% {
-        text-shadow: 0 0 5px #fff, 0 0 15px #fff, 0 0 25px #f5c518, 0 0 30px #f5c518;
+      33% {
+        text-shadow: 0 0 5px #fff, 0 0 12px #fff, 0 0 15px var(--neon-purple), 0 0 25px var(--neon-purple);
+      }
+      66% {
+        text-shadow: 0 0 5px #fff, 0 0 8px #fff, 0 0 10px var(--neon-purple), 0 0 20px var(--neon-purple);
       }
     }
     
-    .vegas-highlight {
-      color: #f5c518;
-      animation: neon 2s infinite;
+    .cyber-highlight {
+      color: var(--neon-purple);
+      animation: neon-flicker 2s infinite;
       font-weight: 700;
     }
     
@@ -449,7 +506,8 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: rgba(0, 0, 0, 0.85);
+      background-color: rgba(12, 12, 20, 0.9);
+      backdrop-filter: blur(5px);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -465,50 +523,61 @@
     }
     
     .modal-content {
-      background-color: #222;
-      border: 3px solid #b8860b;
+      background-color: var(--bg-card);
+      border: 1px solid var(--neon-purple);
       border-radius: 0.75rem;
       width: 90%;
-      max-width: 500px;
+      max-width: 600px;
       max-height: 90vh;
       overflow-y: auto;
       position: relative;
-      box-shadow: 0 10px 30px rgba(245, 197, 24, 0.3);
-      animation: modal-in 0.3s forwards;
+      box-shadow: var(--border-glow);
+      animation: modal-in 0.4s cubic-bezier(0.25, 0.1, 0.25, 1.5) forwards;
     }
     
     @keyframes modal-in {
       from {
-        transform: translateY(20px);
+        transform: translateY(30px) scale(0.95);
         opacity: 0;
       }
       to {
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
         opacity: 1;
       }
     }
     
     .modal-header {
-      background: linear-gradient(to right, #b8860b, #f5c518, #b8860b);
-      color: #000;
-      padding: 0.75rem 1rem;
+      background: linear-gradient(90deg, var(--bg-highlight), var(--neon-purple), var(--bg-highlight));
+      background-size: 200% 100%;
+      animation: gradient-shift 3s ease infinite;
+      color: white;
+      padding: 1rem 1.5rem;
       position: relative;
-      border-bottom: 2px solid #000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 0.75rem 0.75rem 0 0;
+    }
+    
+    @keyframes gradient-shift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
     
     .modal-title {
-      font-size: 1.2rem;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
       font-weight: 700;
       margin-right: 2rem;
+      letter-spacing: 1px;
     }
     
     .close-modal {
       position: absolute;
-      top: 0.75rem;
-      right: 1rem;
+      top: 1rem;
+      right: 1.5rem;
       font-size: 1.5rem;
       line-height: 1;
-      color: #000;
+      color: white;
       cursor: pointer;
       background: none;
       border: none;
@@ -516,60 +585,87 @@
     }
     
     .modal-body {
-      padding: 1rem;
+      padding: 1.5rem;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 1.5rem;
     }
     
     .modal-image-container {
       display: flex;
       justify-content: center;
-      border: 1px solid #444;
-      background-color: #333;
-      padding: 0.5rem;
+      border: 1px solid var(--border-faint);
+      background-color: var(--bg-highlight);
+      padding: 1.5rem;
       border-radius: 0.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .modal-image-container::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        linear-gradient(45deg, transparent 40%, rgba(76, 201, 255, 0.2) 45%, transparent 50%),
+        linear-gradient(135deg, transparent 40%, rgba(206, 0, 255, 0.2) 45%, transparent 50%);
+      pointer-events: none;
+      mix-blend-mode: overlay;
     }
     
     .modal-image {
       max-width: 100%;
-      max-height: 200px;
+      max-height: 300px;
       object-fit: contain;
     }
     
     .modal-details {
       display: grid;
       grid-template-columns: auto 1fr;
-      gap: 0.5rem 1rem;
-      background-color: #1a1a1a;
-      padding: 0.75rem;
+      gap: 0.75rem 1.5rem;
+      background-color: var(--bg-darker);
+      padding: 1.5rem;
       border-radius: 0.5rem;
-      border: 1px solid #444;
+      border: 1px solid var(--border-faint);
     }
     
     .detail-label {
       font-weight: 600;
-      color: #f5c518;
+      color: var(--neon-blue);
     }
     
     .modal-description {
-      background-color: #1a1a1a;
-      padding: 0.75rem;
+      background-color: var(--bg-darker);
+      padding: 1.5rem;
       border-radius: 0.5rem;
-      border: 1px solid #444;
-      line-height: 1.4;
+      border: 1px solid var(--border-faint);
+      line-height: 1.6;
+    }
+    
+    .modal-description a {
+      color: var(--neon-purple);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .modal-description a:hover {
+      color: var(--neon-blue);
+      text-shadow: 0 0 8px var(--neon-blue);
     }
     
     .modal-footer {
-      padding: 1rem;
+      padding: 1.5rem;
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 1rem;
     }
     
     .cta-container {
       display: flex;
-      gap: 0.75rem;
+      gap: 1.5rem;
       justify-content: space-between;
     }
     
@@ -578,14 +674,34 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 0.75rem;
+      padding: 1rem 1.5rem;
       border-radius: 0.5rem;
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 1.1rem;
       cursor: pointer;
       text-decoration: none;
       gap: 0.5rem;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1.5);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    .cta-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.5s ease;
+      z-index: -1;
+    }
+    
+    .cta-button:hover::before {
+      transform: translateX(100%);
     }
     
     .cta-button:hover {
@@ -595,329 +711,177 @@
     .call-button {
       background: linear-gradient(to bottom, #4CAF50, #2E7D32);
       color: white;
-      border: 2px solid #1B5E20;
-      box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 8px rgba(46, 125, 50, 0.3);
     }
     
     .call-button:hover {
-      box-shadow: 0 6px 12px rgba(76, 175, 80, 0.5);
+      box-shadow: 0 6px 12px rgba(46, 125, 50, 0.5), 0 0 15px rgba(46, 125, 50, 0.3);
     }
     
     .text-button {
-      background: linear-gradient(to bottom, #2196F3, #1565C0);
+      background: linear-gradient(to bottom, var(--neon-purple), #7b00a8);
       color: white;
-      border: 2px solid #0D47A1;
-      box-shadow: 0 4px 8px rgba(33, 150, 243, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 8px rgba(180, 19, 236, 0.3);
     }
     
     .text-button:hover {
-      box-shadow: 0 6px 12px rgba(33, 150, 243, 0.5);
+      box-shadow: 0 6px 12px rgba(180, 19, 236, 0.5), 0 0 15px rgba(180, 19, 236, 0.3);
     }
     
     .cta-icon {
       font-size: 1.2rem;
     }
     
-    /* Mobile-First Responsive Adjustments */
-    @media (min-width: 480px) {
-      .header h1 {
-        font-size: 1.8rem;
+    .glitch-text {
+      position: relative;
+      animation: glitch 3s infinite;
+    }
+    
+    @keyframes glitch {
+      0%, 90%, 100% {
+        transform: translate(0);
+        text-shadow: none;
       }
-      
-      .header p {
-        font-size: 1rem;
+      92% {
+        transform: translate(-3px, 1px);
+        text-shadow: -1px 0 var(--glitch-blue);
       }
-      
-      .product-grid {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      93% {
+        transform: translate(3px, -1px);
+        text-shadow: 1px 0 var(--neon-purple);
       }
-      
-      .product-title {
-        font-size: 1rem;
+      94% {
+        transform: translate(-5px, -2px);
+        text-shadow: 1px 0 var(--glitch-blue), -1px 0 var(--neon-purple);
       }
-      
-      .product-image {
-        height: 110px;
+      95% {
+        transform: translate(1px, 3px);
+        text-shadow: -1px 0 var(--neon-purple);
       }
-      
-      .sale-price {
-        font-size: 1.3rem;
+      96% {
+        transform: translate(0);
+        text-shadow: none;
       }
-      
-      .qr-container svg {
-        width: 100px;
-        height: 100px;
-      }
-      
-      .modal-content {
-        max-width: 550px;
-      }
-      
-      .modal-title {
-        font-size: 1.4rem;
-      }
-      
-      .modal-image {
-        max-height: 250px;
+      97% {
+        transform: translate(2px, -2px);
+        text-shadow: 1px 0 var(--neon-purple), -1px 0 var(--glitch-blue);
       }
     }
     
-    @media (min-width: 768px) {
-      .header h1 {
-        font-size: 2.2rem;
-      }
-      
-      .header p {
-        font-size: 1.1rem;
-      }
-      
-      .container {
-        padding: 0 1rem;
-      }
-      
-      .product-grid {
-        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      }
-      
-      .product-image {
-        height: 120px;
-      }
-      
-      .product-title {
-        font-size: 1.1rem;
-      }
-      
-      .sale-price {
-        font-size: 1.4rem;
-      }
-      
-      .contact-number {
-        font-size: 1.5rem;
-      }
-      
-      .qr-container svg {
-        width: 120px;
-        height: 120px;
-      }
-      
-      .modal-content {
-        max-width: 650px;
-      }
-      
-      .modal-title {
-        font-size: 1.5rem;
-      }
-      
-      .modal-body {
-        padding: 1.5rem;
-      }
-      
-      .modal-image {
-        max-height: 300px;
-      }
-      
-      .cta-button {
-        font-size: 1.1rem;
-        padding: 0.85rem;
-      }
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
     }
     
-    @media (min-width: 1024px) {
-      .product-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      }
-      
-      .product-image {
-        height: 130px;
-      }
-      
-      .qr-container svg {
-        width: 150px;
-        height: 150px;
-      }
-      
-      .modal-content {
-        max-width: 700px;
-      }
+    ::-webkit-scrollbar-track {
+      background-color: var(--bg-darker);
     }
     
-    @media (min-width: 1440px) {
-      .product-grid {
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      }
+    ::-webkit-scrollbar-thumb {
+      background-color: var(--neon-purple);
+      border-radius: 4px;
     }
     
-    @media (min-width: 1920px) {
-      .product-grid {
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      }
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: var(--neon-purple-glow);
     }
     
-    /* Landscape orientation adjustments for mobile */
-    @media (max-height: 500px) and (orientation: landscape) {
-      .main-content {
-        flex-direction: row;
-      }
-      
-      .slideshow {
-        min-height: unset;
-      }
-      
+    /* Mobile/responsive styles */
+    @media (max-width: 768px) {
       .product-grid {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-      }
-      
-      .product-image {
-        height: 80px;
-      }
-      
-      .product-title {
-        font-size: 0.8rem;
-        -webkit-line-clamp: 1;
-        max-height: 1.2rem;
-      }
-      
-      .sale-price {
-        font-size: 0.9rem;
-      }
-      
-      .retail-price {
-        font-size: 0.6rem;
-      }
-      
-      .category-tag {
-        font-size: 0.6rem;
-        padding: 0.1rem 0.25rem;
-      }
-      
-      .contact-banner {
-        padding: 0.4rem 0;
-      }
-      
-      .contact-banner h2 {
-        font-size: 1rem;
-        margin-bottom: 0.3rem;
-      }
-      
-      .contact-number {
-        font-size: 1.1rem;
-        padding: 0.4rem 0.6rem;
-      }
-      
-      .qr-container svg {
-        width: 60px;
-        height: 60px;
-      }
-      
-      .modal-content {
-        height: 90vh;
-        max-height: none;
-      }
-      
-      .modal-image {
-        max-height: 150px;
-      }
-      
-      .modal-body {
-        padding: 0.75rem;
-        gap: 0.5rem;
-      }
-      
-      .cta-button {
-        padding: 0.5rem;
-        font-size: 0.9rem;
-      }
-    }
-
-    /* Billboard-specific optimizations */
-    @media (min-width: 1200px) and (min-height: 800px) {
-      .main-content {
-        flex-direction: row;
-      }
-      
-      .slideshow {
-        flex: 3;
-      }
-      
-      .contact-banner {
-        width: 25%;
-        border-top: none;
-        border-left: 4px solid #b8860b;
-      }
-    }
-    
-    /* Mobile scroll fix */
-    @media (max-width: 767px) {
-      body.mobile-view {
-        height: auto;
-        overflow-y: auto;
-      }
-      
-      body.mobile-view .slideshow {
-        min-height: 60vh;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-      }
-      
-      body.mobile-view .contact-banner {
-        position: relative;
-      }
-      
-      .paging-control {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0.5rem 0;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
         gap: 1rem;
       }
       
-      .page-button {
-        background: linear-gradient(to right, #b8860b, #f5c518, #b8860b);
-        color: #000;
-        border: none;
-        padding: 0.5rem 1rem;
-        border-radius: 0.25rem;
-        font-weight: bold;
-        cursor: pointer;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      .product-image {
+        height: 140px;
+      }
+      
+      .product-title {
+        font-size: 0.95rem;
+      }
+      
+      .sale-price {
+        font-size: 1.1rem;
+      }
+      
+      .retail-price {
+        font-size: 0.75rem;
+      }
+      
+      .contact-number {
+        font-size: 1.2rem;
+        padding: 0.6rem 1rem;
+      }
+      
+      .qr-container svg {
+        width: 80px;
+        height: 80px;
+      }
+      
+      .modal-content {
+        width: 95%;
+      }
+      
+      .modal-title {
+        font-size: 1.2rem;
+      }
+      
+      .cta-button {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .header h1 {
+        font-size: 1.5rem;
+      }
+      
+      .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      }
+      
+      .product-image {
+        height: 120px;
+      }
+      
+      .modal-body {
+        padding: 1rem;
+      }
+      
+      .modal-details {
+        padding: 1rem;
+      }
+      
+      .cta-container {
+        flex-direction: column;
+        gap: 0.75rem;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header class="header">
     <div class="container">
-      <h1>MyersCloud.Shop</h1>
+      <h1 class="glitch-text">MyersCloud.Shop</h1>
       <p>Incredible Deals · Massive Savings · Limited Stock</p>
     </div>
   </header>
   
-  <main itemscope itemtype="https://schema.org/Store" class="main-content">
-    <meta itemprop="name" content="MyersCloud.Shop">
-    <meta itemprop="description" content="Premium discount marketplace offering high-quality products at unbeatable prices.">
-    <meta itemprop="image" content="https://myerscloud.shop/logo.png">
-    <meta itemprop="telephone" content="702-969-4266">
-    
-    <!-- Slideshow Section -->
-    <section class="slideshow">
-      <div class="slideshow-container" id="slideshowContainer">
+  <main class="main-content">
+    <div class="container">
+      <div id="productGrid" class="product-grid">
         <!-- Products will be populated by JavaScript -->
       </div>
-      
-      <div class="paging-control" id="pagingControl">
-        <!-- Mobile page buttons will be added here -->
-      </div>
-      
-      <div class="slide-nav" id="slideNav">
-        <!-- Nav dots will be added here -->
-      </div>
-    </section>
+    </div>
     
-    <!-- Contact Banner -->
     <div class="contact-banner">
       <div class="container">
-        <h2>Unbeatable <span class="vegas-highlight">Premium</span> Savings</h2>
+        <h2>Unbeatable <span class="cyber-highlight">Premium</span> Savings</h2>
         <p>These premium items won't last long at these prices!</p>
         
         <div class="contact-info">
@@ -933,10 +897,10 @@
           </div>
         </div>
         
-        <p class="vegas-highlight">First Come, First Served - Limited Time Only!</p>
+        <p class="cyber-highlight">First Come, First Served - Limited Time Only!</p>
       </div>
     </div>
-  </div>
+  </main>
   
   <!-- Product Modal -->
   <div class="product-modal" id="productModal">
@@ -985,557 +949,422 @@
   </div>
 
   <script>
-    // Define items with image URLs, prices, and descriptions
-    const items = [
+    // Product data
+    const products = [
       {
-        item: "AIRPLUS Dehumidifier",
-        retail_price: 249.99,
-        list_price: 100.00,
-        paid_price: 11.00,
-        location: "North Las Vegas - A",
+        name: "AIRPLUS Dehumidifier",
+        retailPrice: 249.99,
+        salePrice: 90.00,
         category: "Climate",
-        image_url: "https://m.media-amazon.com/images/I/51-moyvvCOL.jpg",
-        hot_deal: true,
-        amazon_link: "https://www.amazon.com/AIRPLUS-Dehumidifier-Basements-Intelligent-Humidity/dp/B07PXNN7C5",
-        description: "Powerful AIRPLUS dehumidifier perfect for moisture control in basements, bedrooms and bathrooms. Features quiet operation, auto shutoff, and easy-to-empty water tank. Energy efficient design helps prevent mold, mildew and allergens. <a href='https://www.amazon.com/AIRPLUS-Dehumidifier-Basements-Intelligent-Humidity/dp/B07PXNN7C5' target='_blank'>View on Amazon</a>"
+        imageUrl: "https://m.media-amazon.com/images/I/51-moyvvCOL.jpg",
+        hotDeal: true,
+        description: "Powerful AIRPLUS dehumidifier perfect for moisture control in basements, bedrooms and bathrooms. Features quiet operation, auto shutoff, and easy-to-empty water tank. Energy efficient design helps prevent mold, mildew and allergens.",
+        location: "North Las Vegas - A"
       },
       {
-        item: "Ceydebne Privacy Screen Open Box",
-        retail_price: 49.99,
-        list_price: 25.00,
-        paid_price: 4.50,
-        location: "North Las Vegas - A",
+        name: "Ceydebne Privacy Screen Open Box",
+        retailPrice: 49.99,
+        salePrice: 25.00,
         category: "Office",
-        image_url: "https://m.media-amazon.com/images/I/61cODQ2pl4L.jpg",
-        amazon_link: "https://www.amazon.com/Ceydebne-Privacy-Computer-anti-Glare-Protection/dp/B08HPZSN5W",
-        description: "Protect your sensitive information with this high-quality privacy screen filter. Open box but in excellent condition. Reduces viewing angles to prevent visual hacking while maintaining crystal clear display for the user. <a href='https://www.amazon.com/Ceydebne-Privacy-Computer-anti-Glare-Protection/dp/B08HPZSN5W' target='_blank'>View on Amazon</a>"
+        imageUrl: "https://m.media-amazon.com/images/I/61cODQ2pl4L.jpg",
+        hotDeal: false,
+        description: "Protect your sensitive information with this high-quality privacy screen filter. Open box but in excellent condition. Reduces viewing angles to prevent visual hacking while maintaining crystal clear display for the user.",
+        location: "North Las Vegas - A"
       },
       {
-        item: "Ceydebne Privacy Screen Sealed",
-        retail_price: 49.99,
-        list_price: 30.00,
-        paid_price: 4.50,
-        location: "North Las Vegas - A",
+        name: "Ceydebne Privacy Screen Sealed",
+        retailPrice: 49.99,
+        salePrice: 30.00,
         category: "Office",
-        image_url: "https://images.offerup.com/OBflwHzejS71lmSRWYRax_rBo24=/250x333/afd9/afd9b6443db64c589fe53c80145be31b.jpg",
-        amazon_link: "https://www.amazon.com/Ceydebne-Privacy-Computer-anti-Glare-Protection/dp/B08HPZSN5W",
-        description: "Brand new, factory sealed privacy screen filter from Ceydebne. Prevents visual data theft in offices and public spaces. Anti-glare technology reduces eye strain while providing 60° viewing protection on both sides. <a href='https://www.amazon.com/Ceydebne-Privacy-Computer-anti-Glare-Protection/dp/B08HPZSN5W' target='_blank'>View on Amazon</a>"
+        imageUrl: "https://images.offerup.com/OBflwHzejS71lmSRWYRax_rBo24=/250x333/afd9/afd9b6443db64c589fe53c80145be31b.jpg",
+        hotDeal: false,
+        description: "Brand new, factory sealed privacy screen filter from Ceydebne. Prevents visual data theft in offices and public spaces. Anti-glare technology reduces eye strain while providing 60° viewing protection on both sides.",
+        location: "North Las Vegas - A"
       },
       {
-        item: "TomDetm Privacy Screen Sealed",
-        retail_price: 63.99,
-        list_price: 40.00,
-        paid_price: 4.50,
-        location: "North Las Vegas - A",
+        name: "TomDetm Privacy Screen Sealed",
+        retailPrice: 63.99,
+        salePrice: 25.00,
         category: "Office",
-        image_url: "https://m.media-amazon.com/images/I/61oBZScYUyL.jpg",
-        amazon_link: "https://www.amazon.com/TomDetm-Computer-Monitor-Privacy-Protector/dp/B08J3ZVS9S",
-        description: "Premium TomDetm privacy filter with advanced micro-louver technology. New in sealed packaging. Perfect for use in high-traffic areas like airports, coffee shops or co-working spaces where visual privacy is essential. <a href='https://www.amazon.com/TomDetm-Computer-Monitor-Privacy-Protector/dp/B08J3ZVS9S' target='_blank'>View on Amazon</a>"
+        imageUrl: "https://m.media-amazon.com/images/I/61oBZScYUyL.jpg",
+        hotDeal: false,
+        description: "Premium TomDetm privacy filter with advanced micro-louver technology. New in sealed packaging. Perfect for use in high-traffic areas like airports, coffee shops or co-working spaces where visual privacy is essential.",
+        location: "North Las Vegas - A"
       },
       {
-        item: "Mamol Computer Privacy Screen Open Box",
-        retail_price: 59.99,
-        list_price: 25.00,
-        paid_price: 4.50,
-        location: "North Las Vegas - A",
+        name: "Mamol Computer Privacy Screen",
+        retailPrice: 59.99,
+        salePrice: 20.00,
         category: "Office",
-        image_url: "https://m.media-amazon.com/images/I/71EJUiAO+aL.jpg",
-        amazon_link: "https://www.amazon.com/Computer-Privacy-Screen-Filter-Protector/dp/B07RJ9VY89",
-        description: "Open box Mamol privacy screen with reversible matte/glossy finish options. Protects your screen from scratches while providing privacy from side viewers. Easy installation with included adhesive strips and slide mount tabs. <a href='https://www.amazon.com/Computer-Privacy-Screen-Filter-Protector/dp/B07RJ9VY89' target='_blank'>View on Amazon</a>"
+        imageUrl: "https://m.media-amazon.com/images/I/71EJUiAO+aL.jpg",
+        hotDeal: false,
+        description: "Open box Mamol privacy screen with reversible matte/glossy finish options. Protects your screen from scratches while providing privacy from side viewers. Easy installation with included adhesive strips and slide mount tabs.",
+        location: "North Las Vegas - A"
       },
       {
-        item: "VINTEZ Computer Privacy Screen Filter for Widescreen Monitor",
-        retail_price: 53.99,
-        list_price: 40.00,
-        paid_price: 4.50,
-        location: "North Las Vegas - A",
+        name: "VINTEZ Privacy Screen Filter",
+        retailPrice: 53.99,
+        salePrice: 35.00,
         category: "Office",
-        image_url: "https://images.offerup.com/7vzoCgi3xd2T6VoEjd2zgs3MxzE=/333x250/a7a0/a7a0297024bf4f7b8692fa7afd247a5c.jpg",
-        amazon_link: "https://www.amazon.com/VINTEZ-Widescreen-Computer-Blackout-Compatible/dp/B07CGFC8L3",
-        description: "VINTEZ widescreen privacy filter designed for modern wide monitors. Features blue light reduction technology to reduce eye fatigue. Frameless design allows for touchscreen functionality while maintaining privacy protection. <a href='https://www.amazon.com/VINTEZ-Widescreen-Computer-Blackout-Compatible/dp/B07CGFC8L3' target='_blank'>View on Amazon</a>"
+        imageUrl: "https://images.offerup.com/7vzoCgi3xd2T6VoEjd2zgs3MxzE=/333x250/a7a0/a7a0297024bf4f7b8692fa7afd247a5c.jpg",
+        hotDeal: false,
+        description: "VINTEZ widescreen privacy filter designed for modern wide monitors. Features blue light reduction technology to reduce eye fatigue. Frameless design allows for touchscreen functionality while maintaining privacy protection.",
+        location: "North Las Vegas - A"
       },
       {
-        item: "IKTCH Stainless Steel Range Hood",
-        retail_price: 389.00,
-        list_price: 200.00,
-        paid_price: 33.16,
-        location: "North Las Vegas - A",
+        name: "IKTCH Stainless Steel Range Hood",
+        retailPrice: 389.00,
+        salePrice: 150.00,
         category: "Home Decor",
-        image_url: "https://images.offerup.com/dX7YGYDhugQc7rCo1v2HWmRTtNw=/2047x956/260e/260efeac55fb41b9ad5636290dcdb95a.jpg",
-        hot_deal: true,
-        amazon_link: "https://www.amazon.com/IKTCH-Stainless-Control-Extractor-Filtration/dp/B089ZNBF8F",
-        description: "High-end IKTCH stainless steel range hood with powerful 900 CFM motor. Features touch control panel with LED lighting, dishwasher-safe baffle filters, and 3-speed settings. Perfect for professional-grade kitchen ventilation. <a href='https://www.amazon.com/IKTCH-Stainless-Control-Extractor-Filtration/dp/B089ZNBF8F' target='_blank'>View on Amazon</a>"
+        imageUrl: "https://images.offerup.com/dX7YGYDhugQc7rCo1v2HWmRTtNw=/2047x956/260e/260efeac55fb41b9ad5636290dcdb95a.jpg",
+        hotDeal: true,
+        description: "High-end IKTCH stainless steel range hood with powerful 900 CFM motor. Features touch control panel with LED lighting, dishwasher-safe baffle filters, and 3-speed settings. Perfect for professional-grade kitchen ventilation.",
+        location: "North Las Vegas - A"
       },
       {
-        item: "PowerScale Outdoor Heater",
-        retail_price: 159.99,
-        list_price: 60.00,
-        paid_price: 4.50,
-        location: "North Las Vegas - A",
+        name: "PowerScale Outdoor Heater",
+        retailPrice: 159.99,
+        salePrice: 50.00,
         category: "Climate",
-        image_url: "https://images.offerup.com/TQjiYaS-wzKLFS64YJJV3mdu1G8=/1922x1442/18d5/18d5fed7e09f4839afcb2abb216bafb9.jpg",
-        amazon_link: "https://www.amazon.com/dp/B07YBGT611",
-        description: "PowerScale outdoor heater with adjustable height and weather-resistant construction. Provides instant warmth for patios, decks and outdoor spaces. Includes tip-over protection and adjustable heat settings for comfort year-round. <a href='https://www.amazon.com/dp/B07YBGT611' target='_blank'>View on Amazon</a>"
+        imageUrl: "https://images.offerup.com/TQjiYaS-wzKLFS64YJJV3mdu1G8=/1922x1442/18d5/18d5fed7e09f4839afcb2abb216bafb9.jpg",
+        hotDeal: false,
+        description: "PowerScale outdoor heater with adjustable height and weather-resistant construction. Provides instant warmth for patios, decks and outdoor spaces. Includes tip-over protection and adjustable heat settings for comfort year-round.",
+        location: "North Las Vegas - A"
       },
       {
-        item: "PetSafe Electronic Dog Door",
-        retail_price: 199.95,
-        list_price: 100.00,
-        paid_price: 6.99,
-        location: "North Las Vegas - A",
+        name: "PetSafe Electronic Dog Door",
+        retailPrice: 199.95,
+        salePrice: 90.00,
         category: "Home Decor",
-        image_url: "https://m.media-amazon.com/images/I/61MCYK42a1L.__AC_SX300_SY300_QL70_FMwebp_.jpg",
-        hot_deal: true,
-        amazon_link: "https://www.amazon.com/PetSafe-Electronic-SmartDoor-Collar-Medium/dp/B000TZRQ84",
-        description: "PetSafe electronic pet door with smart access control. Only allows entry to pets wearing the programmable collar key. Weather-tight seal and durable construction provide security and energy efficiency. Ideal for dogs and cats. <a href='https://www.amazon.com/PetSafe-Electronic-SmartDoor-Collar-Medium/dp/B000TZRQ84' target='_blank'>View on Amazon</a>"
+        imageUrl: "https://m.media-amazon.com/images/I/61MCYK42a1L.__AC_SX300_SY300_QL70_FMwebp_.jpg",
+        hotDeal: true,
+        description: "PetSafe electronic pet door with smart access control. Only allows entry to pets wearing the programmable collar key. Weather-tight seal and durable construction provide security and energy efficiency. Ideal for dogs and cats.",
+        location: "North Las Vegas - A"
       },
       {
-        item: "MDODM Knee Glider",
-        retail_price: 58.97,
-        list_price: 40.00,
-        paid_price: 5.74,
-        location: "North Las Vegas - A",
+        name: "MDODM Knee Glider",
+        retailPrice: 58.97,
+        salePrice: 40.00,
         category: "Wellness",
-        image_url: "https://images.offerup.com/_9pbXngVQWT9mIkipmfweRj_r1g=/250x333/f688/f688797280634ea8b2aec6b05747b2d7.jpg",
-        amazon_link: "https://www.amazon.com/MDODM-Scooter-Steerable-Alternative-Recovery/dp/B08RCZZYVB",
-        description: "MDODM knee glider for post-surgery recovery or mobility assistance. Padded cushion provides comfort while the sturdy wheeled base allows for easy movement around the home. Adjustable height settings fit most users. <a href='https://www.amazon.com/MDODM-Scooter-Steerable-Alternative-Recovery/dp/B08RCZZYVB' target='_blank'>View on Amazon</a>"
+        imageUrl: "https://images.offerup.com/_9pbXngVQWT9mIkipmfweRj_r1g=/250x333/f688/f688797280634ea8b2aec6b05747b2d7.jpg",
+        hotDeal: false,
+        description: "MDODM knee glider for post-surgery recovery or mobility assistance. Padded cushion provides comfort while the sturdy wheeled base allows for easy movement around the home. Adjustable height settings fit most users.",
+        location: "North Las Vegas - A"
       },
       {
-        item: "EXCELLO GLOBAL PRODUCTS Whiteboard",
-        retail_price: 61.62,
-        list_price: 40.00,
-        paid_price: 4.50,
-        location: "North Las Vegas - A",
+        name: "EXCELLO GLOBAL PRODUCTS Whiteboard",
+        retailPrice: 61.62,
+        salePrice: 35.00,
         category: "Office",
-        image_url: "https://images.offerup.com/q01rdqYcZDHmFBjO6FAu4eeWtOQ=/333x250/13a9/13a97c9ed715437b8ef37f381a9714d5.jpg",
-        amazon_link: "https://www.amazon.com/EXCELLO-GLOBAL-PRODUCTS-Magnetic-Whiteboard/dp/B082XHVK5B",
-        description: "Premium EXCELLO GLOBAL PRODUCTS magnetic whiteboard with aluminum frame. Smooth writing surface erases cleanly with minimal ghosting. Includes mounting hardware and detachable marker tray for home office or classroom use. <a href='https://www.amazon.com/EXCELLO-GLOBAL-PRODUCTS-Magnetic-Whiteboard/dp/B082XHVK5B' target='_blank'>View on Amazon</a>"
+        imageUrl: "https://images.offerup.com/q01rdqYcZDHmFBjO6FAu4eeWtOQ=/333x250/13a9/13a97c9ed715437b8ef37f381a9714d5.jpg",
+        hotDeal: false,
+        description: "Premium EXCELLO GLOBAL PRODUCTS magnetic whiteboard with aluminum frame. Smooth writing surface erases cleanly with minimal ghosting. Includes mounting hardware and detachable marker tray for home office or classroom use.",
+        location: "North Las Vegas - A"
       },
       {
-        item: "Somdot Narrow Dresser",
-        retail_price: 55.99,
-        list_price: 40.00,
-        paid_price: 5.74,
-        location: "North Las Vegas - A",
+        name: "Somdot Narrow Dresser",
+        retailPrice: 55.99,
+        salePrice: 40.00,
         category: "Bedroom",
-        image_url: "https://images.offerup.com/rismwRCNjBwYH3KDKBC-KPX1g8Q=/250x333/1c56/1c56c39c15aa4657a1ad456decf24174.jpg",
-        amazon_link: "https://www.amazon.com/Somdot-Organizer-Vertical-Dressers-Bathroom/dp/B08P54HN3J",
-        description: "Space-saving Somdot narrow dresser perfect for small bedrooms or hallways. Features 4 fabric drawers with sturdy metal frame and wooden top. Modern design complements any decor style with simple assembly required. <a href='https://www.amazon.com/Somdot-Organizer-Vertical-Dressers-Bathroom/dp/B08P54HN3J' target='_blank'>View on Amazon</a>"
+        imageUrl: "https://images.offerup.com/rismwRCNjBwYH3KDKBC-KPX1g8Q=/250x333/1c56/1c56c39c15aa4657a1ad456decf24174.jpg",
+        hotDeal: false,
+        description: "Space-saving Somdot narrow dresser perfect for small bedrooms or hallways. Features 4 fabric drawers with sturdy metal frame and wooden top. Modern design complements any decor style with simple assembly required.",
+        location: "North Las Vegas - A"
       },
       {
-        item: "ERGOMI Lap Desk",
-        retail_price: 29.00,
-        list_price: 20.00,
-        paid_price: 4.50,
-        location: "North Las Vegas - A",
+        name: "ERGOMI Lap Desk",
+        retailPrice: 29.00,
+        salePrice: 20.00,
         category: "Office",
-        image_url: "https://images.offerup.com/ZUwk740x4YKc98_iqA9mu8lHTkc=/250x333/db64/db64575a43e84c5297d7008c47c6954b.jpg",
-        amazon_link: "https://www.amazon.com/ERGOMI-Portable-Multi-Function-Anti-Slip-Adjustable/dp/B09DTN1X8L",
-        description: "ERGOMI lap desk with built-in wrist rest and phone holder. Cushioned base conforms to your lap while providing a stable work surface. Perfect for working from home, studying in bed, or casual browsing on the couch. <a href='https://www.amazon.com/ERGOMI-Portable-Multi-Function-Anti-Slip-Adjustable/dp/B09DTN1X8L' target='_blank'>View on Amazon</a>"
+        imageUrl: "https://images.offerup.com/ZUwk740x4YKc98_iqA9mu8lHTkc=/250x333/db64/db64575a43e84c5297d7008c47c6954b.jpg",
+        hotDeal: false,
+        description: "ERGOMI lap desk with built-in wrist rest and phone holder. Cushioned base conforms to your lap while providing a stable work surface. Perfect for working from home, studying in bed, or casual browsing on the couch.",
+        location: "North Las Vegas - A"
       },
       {
-        item: "Sweetcrispy Nightstand",
-        retail_price: 32.00,
-        list_price: 20.00,
-        paid_price: 6.99,
-        location: "North Las Vegas - A",
+        name: "Sweetcrispy Nightstand",
+        retailPrice: 32.00,
+        salePrice: 20.00,
         category: "Bedroom",
-        image_url: "https://images.offerup.com/NEsf-aw1frSm38JTG7UOZpK-zq4=/250x333/bbfe/bbfeb930655a420eafc0e59f25b236b9.jpg",
-        amazon_link: "https://www.amazon.com/Sweetcrispy-Nightstand-Bedside-Bedroom-Furniture/dp/B09V1G4X3J",
-        description: "Compact Sweetcrispy nightstand with one drawer and open bottom shelf. Made from engineered wood with clean, modern lines. Perfect height for bedside use with ample storage for books, electronics, and bedtime essentials. <a href='https://www.amazon.com/Sweetcrispy-Nightstand-Bedside-Bedroom-Furniture/dp/B09V1G4X3J' target='_blank'>View on Amazon</a>"
+        imageUrl: "https://images.offerup.com/NEsf-aw1frSm38JTG7UOZpK-zq4=/250x333/bbfe/bbfeb930655a420eafc0e59f25b236b9.jpg",
+        hotDeal: false,
+        description: "Compact Sweetcrispy nightstand with one drawer and open bottom shelf. Made from engineered wood with clean, modern lines. Perfect height for bedside use with ample storage for books, electronics, and bedtime essentials.",
+        location: "North Las Vegas - A"
       },
       {
-        item: "JOISCOPE Garment Rack",
-        retail_price: 34.99,
-        list_price: 30.00,
-        paid_price: 4.50,
-        location: "North Las Vegas - A",
+        name: "JOISCOPE Garment Rack",
+        retailPrice: 34.99,
+        salePrice: 30.00,
         category: "Storage",
-        image_url: "https://images.offerup.com/Xwc4i4wNV9CBStG8uBVayQxbie0=/250x510/e560/e56031eacd4b4c148f885dd77036ab68.jpg",
-        amazon_link: "https://www.amazon.com/JOISCOPE-Garment-Organizer-Industrial-Clothing/dp/B082KV6LFY",
-        description: "JOISCOPE heavy-duty garment rack with shoe shelf. Industrial design with metal frame supports up to 150 pounds of clothing. Perfect for apartments, dorm rooms, or as additional closet space in any room. <a href='https://www.amazon.com/JOISCOPE-Garment-Organizer-Industrial-Clothing/dp/B082KV6LFY' target='_blank'>View on Amazon</a>"
+        imageUrl: "https://images.offerup.com/Xwc4i4wNV9CBStG8uBVayQxbie0=/250x510/e560/e56031eacd4b4c148f885dd77036ab68.jpg",
+        hotDeal: false,
+        description: "JOISCOPE heavy-duty garment rack with shoe shelf. Industrial design with metal frame supports up to 150 pounds of clothing. Perfect for apartments, dorm rooms, or as additional closet space in any room.",
+        location: "North Las Vegas - A"
       },
       {
-        item: "Finnhomy Clothes Rack",
-        retail_price: 48.99,
-        list_price: 40.00,
-        paid_price: 4.50,
-        location: "North Las Vegas - A",
+        name: "Finnhomy Clothes Rack",
+        retailPrice: 48.99,
+        salePrice: 40.00,
         category: "Storage",
-        image_url: "https://images.offerup.com/ofbhvduT8OA_7cscdvTcsPNxD5A=/250x333/6372/63722bd25e6b402f80201161415c85ad.jpg",
-        amazon_link: "https://www.amazon.com/Finnhomy-Adjustable-Double-Garment-Wheels/dp/B07FCX3NS1",
-        description: "Finnhomy expandable clothing rack with commercial-grade chrome finish. Adjustable height and width to fit your space and storage needs. Includes wheels for easy mobility and lockable casters for stability when stationary. <a href='https://www.amazon.com/Finnhomy-Adjustable-Double-Garment-Wheels/dp/B07FCX3NS1' target='_blank'>View on Amazon</a>"
+        imageUrl: "https://images.offerup.com/ofbhvduT8OA_7cscdvTcsPNxD5A=/250x333/6372/63722bd25e6b402f80201161415c85ad.jpg",
+        hotDeal: false,
+        description: "Finnhomy expandable clothing rack with commercial-grade chrome finish. Adjustable height and width to fit your space and storage needs. Includes wheels for easy mobility and lockable casters for stability when stationary.",
+        location: "North Las Vegas - A"
+      },
+      {
+        name: "Zen Sweet Portable Sauna",
+        retailPrice: 99.99,
+        salePrice: 70.00,
+        category: "Wellness",
+        imageUrl: "https://m.media-amazon.com/images/I/71YdK3Yxj8L._AC_SL1500_.jpg",
+        hotDeal: false,
+        description: "Portable personal sauna for home use. Features fast heating elements, comfortable chair, and remote temperature control. Folds compactly for storage. Perfect for detoxification and relaxation therapy.",
+        location: "North Las Vegas - A"
+      },
+      {
+        name: "Bbilife XL Adjustable Folding TV Tray",
+        retailPrice: 45.99,
+        salePrice: 30.00,
+        category: "Furniture",
+        imageUrl: "https://m.media-amazon.com/images/I/71F0xCGY1ZL._AC_SL1500_.jpg",
+        hotDeal: false,
+        description: "Versatile TV tray table with adjustable height and angle settings. Perfect for eating, working, or using laptops. Folds flat for easy storage and features a sturdy construction that supports up to 50 pounds.",
+        location: "North Las Vegas - A"
+      },
+      {
+        name: "Renogy Solar Panel",
+        retailPrice: 149.99,
+        salePrice: 80.00,
+        category: "Electronics",
+        imageUrl: "https://m.media-amazon.com/images/I/71qGrV3wz6L._AC_SL1500_.jpg",
+        hotDeal: false,
+        description: "High-efficiency 100W monocrystalline solar panel. Perfect for RVs, boats, cabins or off-grid power systems. Corrosion-resistant aluminum frame for extended outdoor use and high wind pressure resistance.",
+        location: "North Las Vegas - A"
+      },
+      {
+        name: "SONGMICS Storage Ottoman",
+        retailPrice: 39.99,
+        salePrice: 30.00,
+        category: "Home Decor",
+        imageUrl: "https://m.media-amazon.com/images/I/71fgdElg3TL._AC_SL1500_.jpg",
+        hotDeal: false,
+        description: "Multifunctional storage ottoman that serves as extra seating, footrest, and hidden storage. Features padded top with linen-look fabric and foldable design for compact storage when not in use.",
+        location: "North Las Vegas - A"
+      },
+      {
+        name: "POLIVKZU Desk",
+        retailPrice: 89.99,
+        salePrice: 50.00,
+        category: "Office",
+        imageUrl: "https://m.media-amazon.com/images/I/71nK-4yPaqL._AC_SL1500_.jpg",
+        hotDeal: false,
+        description: "Modern computer desk with integrated bookshelf storage. Features industrial design with metal frame and particleboard top. Spacious work surface with open shelving for organization and display.",
+        location: "North Las Vegas - A"
       }
     ];
-
-    // Process items with discounts and add value classes for glare effects
-    function processItems() {
-      return items.map(item => {
-        // Calculate discount percentage from retail to list
-        const discountPercent = Math.round((1 - (item.list_price / item.retail_price)) * 100);
-        
-        // Determine value class based on price (for glare effect)
-        let valueClass = '';
-        if (item.retail_price >= 200) {
-          valueClass = 'high-value';
-        } else if (item.retail_price >= 100) {
-          valueClass = 'medium-value';
-        }
-        
-        return {
-          ...item,
-          discount: discountPercent,
-          valueClass: valueClass
-        };
+    
+    // Function to calculate discount percentage
+    function calculateDiscount(retailPrice, salePrice) {
+      return Math.round(((retailPrice - salePrice) / retailPrice) * 100);
+    }
+    
+    // Function to determine value class based on price
+    function getValueClass(retailPrice) {
+      if (retailPrice >= 200) {
+        return 'high-value';
+      } else if (retailPrice >= 100) {
+        return 'medium-value';
+      }
+      return '';
+    }
+    
+    // Function to create a product card
+    function createProductCard(product) {
+      // Calculate discount
+      const discount = calculateDiscount(product.retailPrice, product.salePrice);
+      const valueClass = getValueClass(product.retailPrice);
+      
+      // Create the card container
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      if (valueClass) {
+        card.classList.add(valueClass);
+      }
+      
+      // Create product image section
+      const imageContainer = document.createElement('div');
+      imageContainer.className = 'product-image';
+      
+      const image = document.createElement('img');
+      image.src = product.imageUrl;
+      image.alt = product.name;
+      image.loading = "lazy"; // Add lazy loading for better performance
+      image.onerror = function() {
+        this.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect width="100" height="100" fill="%23252538"/><text x="50%" y="50%" font-family="Arial" font-size="14" text-anchor="middle" fill="%23ccc">Image Not Available</text></svg>';
+      };
+      
+      imageContainer.appendChild(image);
+      
+      // Add inventory label
+      const inventoryLabel = document.createElement('div');
+      inventoryLabel.className = 'inventory-label';
+      inventoryLabel.textContent = 'LIMITED STOCK';
+      imageContainer.appendChild(inventoryLabel);
+      
+      // Add hot deal badge if applicable
+      if (product.hotDeal) {
+        const hotDealBadge = document.createElement('div');
+        hotDealBadge.className = 'hot-deal';
+        hotDealBadge.textContent = 'HOT DEAL!';
+        imageContainer.appendChild(hotDealBadge);
+      }
+      
+      // Create product info section
+      const infoContainer = document.createElement('div');
+      infoContainer.className = 'product-info';
+      
+      // Add product title
+      const title = document.createElement('h3');
+      title.className = 'product-title';
+      title.textContent = product.name;
+      
+      // Create price information
+      const priceContainer = document.createElement('div');
+      priceContainer.className = 'price-container';
+      
+      const prices = document.createElement('div');
+      prices.className = 'prices';
+      
+      const retailPrice = document.createElement('div');
+      retailPrice.className = 'retail-price';
+      retailPrice.textContent = `$${product.retailPrice.toFixed(2)}`;
+      
+      const salePrice = document.createElement('div');
+      salePrice.className = 'sale-price';
+      salePrice.textContent = `$${product.salePrice.toFixed(2)}`;
+      
+      prices.appendChild(retailPrice);
+      prices.appendChild(salePrice);
+      
+      const categoryTag = document.createElement('div');
+      categoryTag.className = 'category-tag';
+      categoryTag.textContent = product.category;
+      
+      priceContainer.appendChild(prices);
+      priceContainer.appendChild(categoryTag);
+      
+      // Add discount badge
+      const discountBadge = document.createElement('div');
+      discountBadge.className = 'discount-badge';
+      discountBadge.textContent = `-${discount}%`;
+      
+      // Assemble the card
+      infoContainer.appendChild(title);
+      infoContainer.appendChild(priceContainer);
+      
+      card.appendChild(imageContainer);
+      card.appendChild(infoContainer);
+      card.appendChild(discountBadge);
+      
+      // Add click event to show product details in modal
+      card.addEventListener('click', () => {
+        showProductModal(product);
+      });
+      
+      return card;
+    }
+    
+    // Function to display all products
+    function displayProducts() {
+      const productGrid = document.getElementById('productGrid');
+      
+      if (!productGrid) {
+        console.error("Product grid container not found!");
+        return;
+      }
+      
+      // Clear existing content
+      productGrid.innerHTML = '';
+      
+      // Create and append product cards
+      products.forEach(product => {
+        const card = createProductCard(product);
+        productGrid.appendChild(card);
       });
     }
     
-    const processedItems = processItems();
-    
-    // Detect mobile device for enhanced mobile experience
-    function detectMobile() {
-      const userAgent = navigator.userAgent.toLowerCase();
-      const isMobile = /iphone|ipad|ipod|android|blackberry|windows phone|opera mini|silk/i.test(userAgent);
-      
-      if (isMobile) {
-        document.body.classList.add('mobile-view');
-      }
-      
-      return isMobile;
-    }
-    
-    // Create slideshow with responsive item display and mobile detection
-    function createSlideshow() {
-      const slideshowContainer = document.getElementById("slideshowContainer");
-      const slideNav = document.getElementById("slideNav");
-      const pagingControl = document.getElementById("pagingControl");
-      const isMobile = detectMobile();
-      
-      // Dynamically determine items per page based on screen size
-      function getItemsPerPage() {
-        const width = window.innerWidth;
-        const height = window.innerHeight;
-        
-        // Mobile device in portrait orientation shows fewer items
-        if (width < 480) return 6;
-        if (width < 768) return 8;
-        // Mobile device in landscape or tablet
-        if (width < 1024) return 12;
-        if (width < 1440) return 16;
-        if (width < 1920) return 20;
-        return 24; // For large billboards
-      }
-      
-      function updateSlideshow() {
-        // Clear existing content
-        slideshowContainer.innerHTML = '';
-        slideNav.innerHTML = '';
-        pagingControl.innerHTML = '';
-        
-        const itemsPerPage = getItemsPerPage();
-        const totalPages = Math.ceil(processedItems.length / itemsPerPage);
-        
-        // For mobile view, we'll preload all items on a single scrollable page
-        if (isMobile && window.innerWidth < 768) {
-          const pageGrid = document.createElement("div");
-          pageGrid.className = "product-grid";
-          
-          // Create all items on a single scrollable grid for mobile
-          processedItems.forEach(item => {
-            const productCard = createProductCard(item);
-            pageGrid.appendChild(productCard);
-          });
-          
-          slideshowContainer.appendChild(pageGrid);
-          
-          // Add simple prev/next buttons for mobile
-          const prevBtn = document.createElement("button");
-          prevBtn.className = "page-button";
-          prevBtn.textContent = "← Prev";
-          prevBtn.disabled = true;
-          
-          const nextBtn = document.createElement("button");
-          nextBtn.className = "page-button";
-          nextBtn.textContent = "Next →";
-          nextBtn.disabled = true;
-          
-          pagingControl.appendChild(prevBtn);
-          pagingControl.appendChild(nextBtn);
-        } else {
-          // Create paginated slideshow for larger screens
-          for (let page = 0; page < totalPages; page++) {
-            // Create a page grid
-            const pageGrid = document.createElement("div");
-            pageGrid.className = "product-grid";
-            
-            // Get items for this page
-            const pageItems = processedItems.slice(page * itemsPerPage, (page + 1) * itemsPerPage);
-            
-            // Create product cards for each item
-            pageItems.forEach(item => {
-              const productCard = createProductCard(item);
-              pageGrid.appendChild(productCard);
-            });
-            
-            slideshowContainer.appendChild(pageGrid);
-            
-            // Create nav dot for this page
-            const dot = document.createElement("div");
-            dot.className = "slide-dot";
-            if (page === 0) dot.classList.add("active");
-            dot.dataset.page = page;
-            slideNav.appendChild(dot);
-          }
-        }
-      }
-      
-      // Helper function to create a product card
-      function createProductCard(item) {
-        const productCard = document.createElement("div");
-        productCard.className = "product-card";
-        if (item.valueClass) {
-          productCard.classList.add(item.valueClass);
-        }
-        productCard.dataset.item = item.item;
-        
-        // Create image container with real image
-        const imageDiv = document.createElement("div");
-        imageDiv.className = "product-image";
-        
-        const img = document.createElement("img");
-        img.src = item.image_url;
-        img.alt = item.item;
-        img.loading = "lazy"; // Add lazy loading for better performance
-        img.onerror = () => {
-          img.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23333'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='16' text-anchor='middle' dominant-baseline='middle' fill='%23ccc'%3EImage Not Available%3C/text%3E%3C/svg%3E";
-        };
-        imageDiv.appendChild(img);
-        
-        // Add "Limited Stock" label
-        const inventoryLabel = document.createElement("div");
-        inventoryLabel.className = "inventory-label";
-        inventoryLabel.textContent = "LIMITED STOCK";
-        imageDiv.appendChild(inventoryLabel);
-        
-        // Add hot deal tag for selected items
-        if (item.hot_deal) {
-          const hotDeal = document.createElement("div");
-          hotDeal.className = "hot-deal";
-          hotDeal.textContent = "HOT DEAL!";
-          imageDiv.appendChild(hotDeal);
-        }
-        
-        // Create product info container
-        const infoDiv = document.createElement("div");
-        infoDiv.className = "product-info";
-        
-        // Create header with title and discount badge
-        const headerDiv = document.createElement("div");
-        headerDiv.className = "product-header";
-        
-        const title = document.createElement("h2");
-        title.className = "product-title";
-        title.textContent = item.item;
-        
-        const discountBadge = document.createElement("span");
-        discountBadge.className = "discount-badge";
-        discountBadge.textContent = `-${item.discount}%`;
-        
-        headerDiv.appendChild(title);
-        headerDiv.appendChild(discountBadge);
-        
-        // Create price container
-        const priceContainer = document.createElement("div");
-        priceContainer.className = "price-container";
-        
-        const pricesDiv = document.createElement("div");
-        pricesDiv.className = "prices";
-        
-        const retailPrice = document.createElement("p");
-        retailPrice.className = "retail-price";
-        retailPrice.textContent = `$${item.retail_price.toFixed(2)}`;
-        
-        const salePrice = document.createElement("p");
-        salePrice.className = "sale-price";
-        salePrice.textContent = `$${item.list_price.toFixed(2)}`;
-        
-        pricesDiv.appendChild(retailPrice);
-        pricesDiv.appendChild(salePrice);
-        
-        const categoryTag = document.createElement("span");
-        categoryTag.className = "category-tag";
-        categoryTag.textContent = item.category;
-        
-        priceContainer.appendChild(pricesDiv);
-        priceContainer.appendChild(categoryTag);
-        
-        // Assemble product card
-        infoDiv.appendChild(headerDiv);
-        infoDiv.appendChild(priceContainer);
-        
-        productCard.appendChild(imageDiv);
-        productCard.appendChild(infoDiv);
-        
-        // Add click event to show modal
-        productCard.addEventListener('click', () => {
-          showProductModal(item);
-        });
-        
-        return productCard;
-      }
-      
-      // Initialize slideshow
-      updateSlideshow();
-      
-      if (!isMobile || window.innerWidth >= 768) {
-        // Set up automatic slideshow and dot navigation for non-mobile or landscape tablets
-        let currentPage = 0;
-        
-        function goToPage(pageIndex) {
-          // Update slideshow position
-          slideshowContainer.style.transform = `translateX(-${pageIndex * 100}%)`;
-          
-          // Update dots
-          const dots = slideNav.querySelectorAll(".slide-dot");
-          dots.forEach((dot, index) => {
-            if (index === pageIndex) {
-              dot.classList.add("active");
-            } else {
-              dot.classList.remove("active");
-            }
-          });
-          
-          currentPage = pageIndex;
-        }
-        
-        // Auto-advance slideshow (only for billboard and desktop views)
-        let slideshowInterval;
-        
-        // Only enable auto-advance if screen is large enough (likely a billboard)
-        if (window.innerWidth >= 1024) {
-          slideshowInterval = setInterval(() => {
-            const dots = slideNav.querySelectorAll(".slide-dot");
-            if (dots.length > 0) {
-              const nextPage = (currentPage + 1) % dots.length;
-              goToPage(nextPage);
-            }
-          }, 8000); // Change slide every 8 seconds
-        }
-        
-        // Add click handlers for dot navigation
-        slideNav.addEventListener('click', (event) => {
-          if (event.target.classList.contains('slide-dot')) {
-            const pageIndex = parseInt(event.target.dataset.page);
-            goToPage(pageIndex);
-            
-            // Reset automatic slideshow timer
-            if (slideshowInterval) {
-              clearInterval(slideshowInterval);
-              slideshowInterval = setInterval(() => {
-                const dots = slideNav.querySelectorAll(".slide-dot");
-                if (dots.length > 0) {
-                  const nextPage = (currentPage + 1) % dots.length;
-                  goToPage(nextPage);
-                }
-              }, 8000);
-            }
-          }
-        });
-      }
-      
-      // Handle window resize with performance optimization
-      let resizeTimeout;
-      window.addEventListener('resize', () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(() => {
-          updateSlideshow();
-        }, 250);
-      });
-      
-      // Enable touch swipe navigation for mobile
-      if (isMobile) {
-        let touchStartX = 0;
-        let touchEndX = 0;
-        
-        slideshowContainer.addEventListener('touchstart', (e) => {
-          touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-        
-        slideshowContainer.addEventListener('touchend', (e) => {
-          touchEndX = e.changedTouches[0].screenX;
-          handleSwipe();
-        }, { passive: true });
-        
-        function handleSwipe() {
-          const dots = slideNav.querySelectorAll(".slide-dot");
-          if (dots.length <= 1) return;
-          
-          const swipeThreshold = 50;
-          const swipeDiff = touchEndX - touchStartX;
-          
-          if (swipeDiff > swipeThreshold) {
-            // Swipe right - go to previous page
-            const prevPage = (currentPage - 1 + dots.length) % dots.length;
-            goToPage(prevPage);
-          } else if (swipeDiff < -swipeThreshold) {
-            // Swipe left - go to next page
-            const nextPage = (currentPage + 1) % dots.length;
-            goToPage(nextPage);
-          }
-        }
-      }
-    }
-    
-    // Product Modal Functions
-    const productModal = document.getElementById('productModal');
-    const closeModalBtn = document.getElementById('closeModal');
-    
-    function showProductModal(item) {
-      // Populate modal with item details
-      document.getElementById('modalTitle').textContent = item.item;
-      document.getElementById('modalImage').src = item.image_url;
-      document.getElementById('modalImage').alt = item.item;
-      document.getElementById('modalRetailPrice').textContent = `${item.retail_price.toFixed(2)}`;
-      document.getElementById('modalSalePrice').textContent = `${item.list_price.toFixed(2)}`;
+    // Function to show product modal
+    function showProductModal(product) {
+      // Get modal elements
+      const modal = document.getElementById('productModal');
+      const title = document.getElementById('modalTitle');
+      const image = document.getElementById('modalImage');
+      const retailPrice = document.getElementById('modalRetailPrice');
+      const salePrice = document.getElementById('modalSalePrice');
+      const savings = document.getElementById('modalSavings');
+      const category = document.getElementById('modalCategory');
+      const location = document.getElementById('modalLocation');
+      const description = document.getElementById('modalDescription');
       
       // Calculate savings
-      const savingsAmount = item.retail_price - item.list_price;
-      const savingsPercent = Math.round((savingsAmount / item.retail_price) * 100);
-      document.getElementById('modalSavings').textContent = `${savingsAmount.toFixed(2)} (${savingsPercent}% off)`;
+      const savingsAmount = product.retailPrice - product.salePrice;
+      const savingsPercent = calculateDiscount(product.retailPrice, product.salePrice);
       
-      document.getElementById('modalCategory').textContent = item.category;
-      document.getElementById('modalLocation').textContent = item.location;
-      document.getElementById('modalDescription').innerHTML = item.description;
+      // Populate modal content
+      title.textContent = product.name;
+      image.src = product.imageUrl;
+      image.alt = product.name;
+      retailPrice.textContent = `$${product.retailPrice.toFixed(2)}`;
+      salePrice.textContent = `$${product.salePrice.toFixed(2)}`;
+      savings.textContent = `$${savingsAmount.toFixed(2)} (${savingsPercent}% off)`;
+      category.textContent = product.category;
+      location.textContent = product.location;
+      description.textContent = product.description;
       
-      // Show modal
-      productModal.classList.add('active');
+      // Display modal
+      modal.classList.add('active');
       document.body.style.overflow = 'hidden'; // Prevent background scrolling
     }
     
+    // Function to close product modal
     function closeProductModal() {
-      productModal.classList.remove('active');
+      const modal = document.getElementById('productModal');
+      modal.classList.remove('active');
       document.body.style.overflow = ''; // Restore scrolling
     }
     
-    // Close modal events
-    closeModalBtn.addEventListener('click', closeProductModal);
-    
-    // Close when clicking outside the modal content
-    productModal.addEventListener('click', (event) => {
-      if (event.target === productModal) {
-        closeProductModal();
+    // Event listener for close button
+    document.addEventListener('DOMContentLoaded', function() {
+      const closeButton = document.getElementById('closeModal');
+      if (closeButton) {
+        closeButton.addEventListener('click', closeProductModal);
       }
+      
+      // Close modal when clicking outside content
+      const modal = document.getElementById('productModal');
+      if (modal) {
+        modal.addEventListener('click', function(event) {
+          if (event.target === modal) {
+            closeProductModal();
+          }
+        });
+      }
+      
+      // ESC key to close modal
+      document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+          closeProductModal();
+        }
+      });
+      
+      // Initialize product display
+      displayProducts();
     });
     
-    // Close with ESC key
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && productModal.classList.contains('active')) {
-        closeProductModal();
-      }
-    });
-    
-    // Initialize the slideshow when the page loads
-    document.addEventListener("DOMContentLoaded", createSlideshow);
+    // Initialize if DOM already loaded
+    if (document.readyState === 'interactive' || document.readyState === 'complete') {
+      displayProducts();
+    }
   </script>
 </body>
 </html>
